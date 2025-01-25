@@ -26,7 +26,7 @@ html {
 #app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -210,15 +210,21 @@ button:hover {
 #home .content {
   max-width: 1200px;
   width: 100%;
+  padding-bottom: 100px;
 }
 
-.logo {
+#logo {
   top: 0px;
   position: absolute;
   width: 100px;
   left: 0px;
   z-index: 10;
   margin: 20px 40px;
+}
+
+#logo-big {
+width: 200px;
+margin-bottom: 40px;
 }
 
 #fullscreen-toggle {
@@ -313,6 +319,22 @@ button:hover {
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Altezza della barra */
+  z-index: 1000; /* Assicurati che sia sopra tutti gli altri elementi */
+}
+
+#progress {
+  height: 100%;
+  width: 0; /* La larghezza iniziale è 0 */
+  background-color: var(--git-primary-color); /* Colore della barra di caricamento */
+  transition: width 0.3s ease; /* Animazione fluida */
 }
 
 /* Responsive: impila i bottoni su mobile */

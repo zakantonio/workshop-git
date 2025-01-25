@@ -170,6 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
       updateKeywordDisplay(); // Aggiorna la visualizzazione del concetto
       setupKeywordClickListeners(); // Imposta i listener per il click
     }
+
+    document.getElementById("logo").style.visibility = currentPageIndex === 0 ? "hidden" : "visible";
+
+    updateProgressBar();
   }
 
   function showHome() {
@@ -292,6 +296,20 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.classList.add("fa-expand");
     }
   }
+
+  // Funzione per aggiornare la barra di caricamento
+  function updateProgressBar() {
+    if (currentPageIndex === 0) {
+      progressBar.style.width = 0;
+    } else {
+      const delta = 1 / pages.length * 100;
+      const percent = (currentPageIndex / pages.length) * 100;
+      document.getElementById('progress').style.width = percent + delta + '%';
+    }
+  }
+
+  // Aggiorna la barra di caricamento al caricamento della pagina
+  updateProgressBar();
 
   // Aggiungi l'evento al pulsante
   document
