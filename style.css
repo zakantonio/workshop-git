@@ -1,0 +1,142 @@
+@font-face {
+  font-family: Adelle_Reg;
+  src: url('assets/fonts/Adelle_Reg.otf')  format('truetype');
+}
+
+
+:root {
+    --git-primary-color: #f05033;
+    --git-secondary-color: #6cc644;
+    --git-font: 'Adelle_Reg', 'Segoe UI', sans-serif;
+    --git-text-color: #333;
+    --git-bg-color: #f5f5f5;
+  }
+  
+  body {
+    font-family: var(--git-font);
+    color: var(--git-text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--git-bg-color);
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .page {
+    display: none;
+    flex: 1;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: var(--git-primary-color);
+  }
+  
+  button {
+    background-color: var(--git-secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  #home-actions {
+    margin-top: 20px;
+  }
+  
+  #pages .page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .keyword-list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .keyword-item {
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  .keyword-item.active {
+    font-weight: bold;
+    color: var(--git-primary-color);
+  }
+  
+  .keyword-content {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .keyword-image {
+    width: 50%;
+    margin-left: 20px;
+  }
+  
+  .keyword-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #glossary-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #glossary-list li {
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  #footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #footer-links li {
+    margin: 10px 0;
+  }
+  
+  #footer-links a {
+    color: var(--git-primary-color);
+    text-decoration: none;
+  }
+  
+  #footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .keyword-content {
+      flex-direction: column;
+    }
+  
+    .keyword-list, .keyword-image {
+      width: 100%;
+      margin-left: 0;
+    }
+  }

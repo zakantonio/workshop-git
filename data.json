@@ -1,0 +1,83 @@
+{
+    "home": {
+      "id": "home",
+      "title": "Benvenuto nel Mondo di Git",
+      "subtitle": "Scopri tutto su Git e il version control",
+      "background": "url('home-bg.jpg')",
+      "actions": [
+        {
+          "text": "Inizia il Tour",
+          "link": "#standard-page-1"
+        },
+        {
+          "text": "Vai al Glossario",
+          "link": "#glossary"
+        }
+      ]
+    },
+    "pages": [
+      {
+        "id": "standard-page-1",
+        "type": "standard",
+        "title": "Concetti Base di Git",
+        "subtitle": "Impara i fondamenti di Git",
+        "background": "#f5f5f5",
+        "keywords": [
+          {
+            "name": "Repository",
+            "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche.",
+            "image": "assets/images/repo.png"
+          },
+          {
+            "name": "Commit",
+            "concept": "Un commit è uno snapshot delle modifiche apportate al repository.",
+            "image": "assets/images/commit.png"
+          }
+        ]
+      },
+      {
+        "id": "custom-page-1",
+        "type": "custom",
+        "title": "Flusso di Lavoro con Git",
+        "subtitle": "Come utilizzare Git in un team",
+        "background": "#e0e0e0",
+        "content": {
+          "text": "Git permette di collaborare in modo efficiente. Ecco alcuni suggerimenti...",
+          "image": "assets/images/workflow.png"
+        }
+      }
+    ],
+    "glossary": {
+      "id": "glossary",
+      "title": "Glossario",
+      "background": "#ffffff",
+      "keywords": [
+        {
+          "name": "Repository",
+          "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche."
+        },
+        {
+          "name": "Commit",
+          "concept": "Un commit è uno snapshot delle modifiche apportate al repository."
+        }
+      ]
+    },
+    "footer": {
+      "id": "footer",
+      "title": "Grazie a Tutti",
+      "background": "#333333",
+      "quote": "Il version control è la chiave per un lavoro di squadra efficiente.",
+      "links": [
+        {
+          "text": "Documentazione Ufficiale di Git",
+          "url": "https://git-scm.com/doc",
+          "description": "Tutta la documentazione ufficiale su Git."
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com",
+          "description": "La piattaforma di hosting per repository Git."
+        }
+      ]
+    }
+  }
