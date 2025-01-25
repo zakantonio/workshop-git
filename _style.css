@@ -55,19 +55,17 @@ html {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  height: 100;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 20px;
-  text-align: center;
 }
 
 /* Stile per titoli e sottotitoli */
 h1 {
   font-size: 36px;
   color: var(--git-primary-color);
-  margin: 0 0 20px 0;
+  margin: 0 0 0px 0;
 }
 
 /* Stile per i pulsanti */
@@ -81,24 +79,28 @@ button {
 }
 
 button:hover {
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 /* Stile per la lista delle parole chiave */
 .keyword-list {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 20%;
 }
 
 .keyword-item {
   cursor: pointer;
   margin: 10px 0;
+  padding: 5px 10px;
 }
 
 .keyword-item.active {
   font-weight: bold;
   color: var(--git-primary-color);
+  background-color: rgba(240, 80, 51, 0.1);
+  /* Sfondo leggero per evidenziare */
+  border-radius: 5px;
 }
 
 /* Layout per il contenuto delle parole chiave */
@@ -110,13 +112,19 @@ button:hover {
 }
 
 .keyword-image {
-  width: 50%;
+  width: 80%;
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .keyword-image img {
-  max-width: 80%;
+  max-width: 50%;
   height: auto;
+}
+.keyword-image p {
+  max-width: 50%;
 }
 
 /* Stile per il footer */
@@ -136,15 +144,6 @@ button:hover {
 
 #footer-links a:hover {
   text-decoration: underline;
-}
-
-.keyword-item.active {
-  font-weight: bold;
-  color: var(--git-primary-color);
-  background-color: rgba(240, 80, 51, 0.1);
-  /* Sfondo leggero per evidenziare */
-  padding: 5px 10px;
-  border-radius: 5px;
 }
 
 /* Stile per il glossario */
@@ -175,6 +174,13 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex: 1 1 calc(50% - 20px); /* 2 colonne su desktop */
   box-sizing: border-box;
+  cursor: pointer;
+  transition: scale 0.3s ease, box-shadow 0.3s ease;
+}
+
+#glossary-list li:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  scale: 1.01;
 }
 
 #glossary-list li h3 {
@@ -206,12 +212,39 @@ button:hover {
   width: 100%;
 }
 
-#home .logo {
+.logo {
   top: 0px;
   position: absolute;
   width: 100px;
   left: 0px;
+  z-index: 10;
   margin: 20px 40px;
+}
+
+#fullscreen-toggle {
+  top: 0px;
+  position: absolute;
+  right: 0px;
+  margin: 20px 40px;
+  color: var(--git-secondary-color);
+  opacity: 0.5;
+  filter: grayscale(1);
+  border: none;
+  z-index: 10;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: scale 0.3s ease, filter 0.3s ease;
+}
+
+#fullscreen-toggle:hover {
+  opacity: 1;
+  scale: 1.5;
+  filter: grayscale(0);
+}
+
+#fullscreen-icon {
+  font-size: 18px;
 }
 /* Titolo e sottotitolo */
 #home .home-text {
@@ -240,13 +273,14 @@ button:hover {
 /* Azioni */
 #home-tip {
   position: absolute;
-  right: 40px;
-  bottom: 32px;
+  right: 48px;
+  bottom: 40px;
 }
 
 #home-tip img {
-  width: 5vw;
+  width: 80px;
   opacity: 0.6;
+  filter: grayscale(1);
 }
 
 #home-actions button {
@@ -261,42 +295,36 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
-#home-actions button:hover {
-  background-color: darken(var(--git-secondary-color), 10%);
-}
-
 /* Stile per i bottoni di navigazione */
 .navigation-buttons {
   display: flex;
-  justify-content: space-between;
   margin-top: 30px;
+  position: absolute;
+  bottom: 40px;
+  gap: 10px;
 }
 
 .nav-button {
   background-color: var(--git-secondary-color);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 
-.nav-button:hover {
-  background-color: darken(var(--git-secondary-color), 10%);
-}
-
 /* Responsive: impila i bottoni su mobile */
 @media (max-width: 768px) {
-  .navigation-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-button {
-    width: 100%;
-  }
+  /* .navigation-buttons { */
+  /*   flex-direction: column; */
+  /*   gap: 10px; */
+  /* } */
+  
+  /* .nav-button { */
+  /*   width: 100%; */
+  /* } */
   
   #home .home-text h1 {
     font-size: 36px;

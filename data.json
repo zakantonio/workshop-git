@@ -3,10 +3,9 @@
     "id": "home",
     "title": "Introduzione a Git",
     "subtitle": "Concetti e tecniche essenziali per gestire l'evoluzione e la distribuzione del tuo progetto",
-    "background": "assets/images/home-bg.png",
     "actions": [
       {
-        "text": "A cosa serve?",
+        "text": "Perché usare Git?",
         "link": "#standard-page-1"
       },
       {
@@ -19,31 +18,183 @@
     {
       "id": "standard-page-1",
       "type": "standard",
-      "title": "Concetti Base di Git",
-      "subtitle": "Impara i fondamenti di Git",
+      "title": "Esigenza",
+      "subtitle": "Perché abbiamo bisogno di Git?",
       "background": "#f5f5f5",
       "keywords": [
         {
+          "name": "Problemi comuni",
+          "concept": "Immagina di lavorare su un progetto importante. Un giorno, dopo aver apportato diverse modifiche al codice, ti rendi conto che qualcosa non funziona più come dovrebbe. Vorresti tornare alla versione precedente, ma hai già salvato più volte e non hai backup.",
+          "image": "assets/images/workflow.png"
+        },
+        {
+          "name": "Soluzione",
+          "concept": "Git nasce proprio per risolvere questi problemi. \nCon Git puoi tornare a qualsiasi versione precedente del tuo codice, collaborare con altri sviluppatori senza conflitti, sperimentare nuove funzionalità senza rischiare di compromettere il codice funzionante e tenere traccia di chi ha fatto quali modifiche e quando.",
+          "image": "url('solution.jpg')"
+        }
+      ]
+    },
+    {
+      "id": "standard-page-2",
+      "type": "standard",
+      "title": "Introduzione a Git",
+      "subtitle": "Cos'è Git e come funziona?",
+      "background": "#e0e0e0",
+      "keywords": [
+        {
           "name": "Repository",
-          "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche.",
-          "image": "assets/images/repo.png"
+          "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche al codice. Contiene l'intera cronologia del progetto, inclusi tutti i file e le cartelle.",
+          "image": "url('repository.jpg')"
         },
         {
           "name": "Commit",
-          "concept": "Un commit è uno snapshot delle modifiche apportate al repository.",
-          "image": "assets/images/commit.png"
+          "concept": "Un commit è uno snapshot delle modifiche apportate al repository. Ogni commit ha un messaggio che descrive le modifiche effettuate.",
+          "image": "url('commit.jpg')"
+        },
+        {
+          "name": "Branch",
+          "concept": "Un branch è una linea di sviluppo separata. Permette di lavorare su nuove funzionalità o correzioni di bug senza interferire con il codice principale.",
+          "image": "url('branch.jpg')"
+        },
+        {
+          "name": "Working Directory",
+          "concept": "La working directory è la cartella locale sul tuo computer dove lavori ai file del progetto. Contiene i file che stai modificando.",
+          "image": "url('working-directory.jpg')"
+        },
+        {
+          "name": "Staging Area",
+          "concept": "La staging area è un'area temporanea dove Git tiene traccia delle modifiche che verranno incluse nel prossimo commit. Permette di selezionare quali modifiche includere.",
+          "image": "url('staging-area.jpg')"
         }
       ]
     },
     {
       "id": "custom-page-1",
       "type": "custom",
-      "title": "Flusso di Lavoro con Git",
-      "subtitle": "Come utilizzare Git in un team",
-      "background": "#e0e0e0",
+      "title": "Comandi Base",
+      "subtitle": "I comandi essenziali per iniziare con Git",
+      "background": "#ffffff",
       "content": {
-        "text": "Git permette di collaborare in modo efficiente. Ecco alcuni suggerimenti...",
-        "image": "assets/images/workflow.png"
+        "text": "Ecco alcuni comandi base di Git:\n\n- **Configurazione iniziale**: `git config --global user.name \"Il tuo nome\"`\n- **Inizializzare un repository**: `git init`\n- **Verificare lo stato**: `git status`\n- **Aggiungere file allo staging**: `git add <file>`\n- **Committare le modifiche**: `git commit -m \"messaggio del commit\"`",
+        "image": "url('commands.jpg')"
+      }
+    },
+    {
+      "id": "standard-page-3",
+      "type": "standard",
+      "title": "Gestione Base dei File",
+      "subtitle": "Come tracciare le modifiche ai file nel repository",
+      "background": "#f5f5f5",
+      "keywords": [
+        {
+          "name": "Tracking dei file",
+          "concept": "Git tiene traccia delle modifiche ai file nel repository.",
+          "image": "url('tracking.jpg')"
+        },
+        {
+          "name": "Staging",
+          "concept": "Prima di committare le modifiche, i file devono essere aggiunti allo staging area con `git add`.",
+          "image": "url('staging.jpg')"
+        },
+        {
+          "name": "Commit",
+          "concept": "Un commit è uno snapshot delle modifiche apportate al repository.",
+          "image": "url('commit.jpg')"
+        },
+        {
+          "name": ".gitignore",
+          "concept": "Il file .gitignore è uno strumento fondamentale per specificare quali file e cartelle Git dovrebbe ignorare nel tracciamento delle modifiche.",
+          "image": "url('commit.jpg')"
+        }
+      ]
+    },
+    {
+      "id": "standard-page-4",
+      "type": "standard",
+      "title": "Branching e Merging",
+      "subtitle": "Gestione dei rami di sviluppo paralleli e loro riconciliazione",
+      "background": "#e0e0e0",
+      "keywords": [
+        {
+          "name": "Branch creation",
+          "concept": "Creare un nuovo branch con `git branch <nome-branch>`.",
+          "image": "url('branch.jpg')"
+        },
+        {
+          "name": "Merging",
+          "concept": "Unire due branch con `git merge <nome-branch>`.",
+          "image": "url('merge.jpg')"
+        },
+        {
+          "name": "Conflitti",
+          "concept": "Risolvere i conflitti durante il merge.",
+          "image": "url('conflict.jpg')"
+        }
+      ]
+    },
+    {
+      "id": "custom-page-2",
+      "type": "custom",
+      "title": "Collaborazione Remota",
+      "subtitle": "Lavorare con repository remoti e collaborare con altri sviluppatori",
+      "background": "#ffffff",
+      "content": {
+        "text": "Ecco alcuni comandi per la collaborazione remota:\n\n- **Clonare un repository**: `git clone <url>`\n- **Push**: `git push -u origin master`\n- **Pull**: `git pull origin master`\n- **Fetch**: `git fetch origin`",
+        "image": "url('remote.jpg')"
+      }
+    },
+    {
+      "id": "standard-page-5",
+      "type": "standard",
+      "title": "Argomenti Avanzati",
+      "subtitle": "Tecniche e comandi più sofisticati per gestire situazioni complesse",
+      "background": "#f5f5f5",
+      "keywords": [
+        {
+          "name": "Rebase",
+          "concept": "Riorganizzare i commit con `git rebase <branch>`.",
+          "image": "url('rebase.jpg')"
+        },
+        {
+          "name": "Cherry-pick",
+          "concept": "Applicare un commit specifico con `git cherry-pick <commit-hash>`.",
+          "image": "url('cherry-pick.jpg')"
+        },
+        {
+          "name": "Stash",
+          "concept": "Salvare temporaneamente le modifiche con `git stash`.",
+          "image": "url('stash.jpg')"
+        }
+      ]
+    },
+    {
+      "id": "standard-page-6",
+      "type": "standard",
+      "title": "Git Blame e Patch",
+      "subtitle": "Strumenti avanzati per analizzare le modifiche e applicare cambiamenti specifici",
+      "background": "#f5f5f5",
+      "keywords": [
+        {
+          "name": "Git Blame",
+          "concept": "Il comando `git blame` mostra chi ha modificato ogni riga di un file e quando. È utile per tracciare l'origine di una modifica o identificare l'autore di un bug.",
+          "image": "url('git-blame.jpg')"
+        },
+        {
+          "name": "Patch",
+          "concept": "Una patch è un file che contiene le differenze tra due versioni di un file o di un insieme di file. Può essere applicata per riprodurre le stesse modifiche in un altro repository.",
+          "image": "url('patch.jpg')"
+        }
+      ]
+    },
+    {
+      "id": "custom-page-3",
+      "type": "custom",
+      "title": "Best Practices e Workflow",
+      "subtitle": "Linee guida e metodologie per un utilizzo efficace di Git in team",
+      "background": "#ffffff",
+      "content": {
+        "text": "Ecco alcune best practices:\n\n- **GitHub workflow**: Un flusso di lavoro comune per la collaborazione.\n- **Convenzioni per i commit message**: Scrivere messaggi di commit chiari e concisi.\n- **Code review process**: Revisionare il codice prima di unire le modifiche.\n- **Branch naming conventions**: Usare nomi significativi per i branch.\n- **Release management**: Gestire le release in modo strutturato.",
+        "image": "url('best-practices.jpg')"
       }
     }
   ],
@@ -55,17 +206,32 @@
       {
         "name": "Repository",
         "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche.",
-        "pageId": "standard-page-1" 
+        "pageId": "standard-page-2"
       },
       {
         "name": "Commit",
         "concept": "Un commit è uno snapshot delle modifiche apportate al repository.",
-        "pageId": "standard-page-1"
+        "pageId": "standard-page-3"
       },
       {
         "name": "Branch",
         "concept": "Un branch è una linea di sviluppo separata.",
-        "pageId": "standard-page-2"
+        "pageId": "standard-page-4"
+      },
+      {
+        "name": "Staging Area",
+        "concept": "Un'area temporanea dove Git tiene traccia delle modifiche prima di committarle.",
+        "pageId": "standard-page-3"
+      },
+      {
+        "name": "Merge",
+        "concept": "Unire due branch in uno.",
+        "pageId": "standard-page-4"
+      },
+      {
+        "name": "Rebase",
+        "concept": "Riorganizzare i commit in un branch.",
+        "pageId": "standard-page-5"
       }
     ]
   },
@@ -73,7 +239,7 @@
     "id": "footer",
     "title": "Grazie a Tutti",
     "background": "#333333",
-    "quote": "Il version control è la chiave per un lavoro di squadra efficiente.",
+    "quote": "",
     "links": [
       {
         "text": "Documentazione Ufficiale di Git",

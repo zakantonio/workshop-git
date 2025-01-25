@@ -13,19 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
       renderPages();
       renderGlossary();
       renderFooter();
-      showPage("home");
+      showHome();
     });
 
   // Renderizza la Home Page
   function renderHome() {
     const homeContent = document.querySelector("#home .content");
-
-    // Aggiungi il logo
-    const logo = document.createElement("img");
-    logo.src = "assets/images/logo_.png"; // Percorso del logo
-    logo.alt = "Logo";
-    logo.className = "logo";
-    homeContent.prepend(logo); // Aggiungi il logo all'inizio del contenuto
 
     // Imposta titolo e sottotitolo
     document.getElementById("home-title").innerText = data.home.title;
@@ -45,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Renderizza le Pagine Standard e Custom
   function renderPages() {
-
     // Aggiungi la home all'array delle pagine
     const homePage = document.getElementById("home");
     pages.push(homePage);
@@ -73,10 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   .join("")}
               </div>
               <div class="keyword-image">
+                <p>${page.keywords[0].concept}</p>
                 <img src="${page.keywords[0].image}" alt="${
                   page.keywords[0].name
                 }">
-                <p>${page.keywords[0].concept}</p>
               </div>
             </div>
           `
@@ -180,6 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function showHome() {
+    showPage("home");
+  }
+
   // Imposta i listener per il click sulle parole chiave
   function setupKeywordClickListeners() {
     const currentPage = pages[currentPageIndex];
@@ -249,14 +245,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Gestione degli eventi da tastiera
   document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") {
+    if (event.key === "ArrowDown") {
       navigateKeywords("right"); // Passa al concetto successivo
-    } else if (event.key === "ArrowLeft") {
-      navigateKeywords("left"); // Passa al concetto precedente
-    } else if (event.key === "ArrowDown") {
-      navigatePages("down"); // Passa alla pagina successiva
     } else if (event.key === "ArrowUp") {
+      navigateKeywords("left"); // Passa al concetto precedente
+    } else if (event.key === "ArrowRight") {
+      navigatePages("down"); // Passa alla pagina successiva
+    } else if (event.key === "ArrowLeft") {
       navigatePages("up"); // Passa alla pagina precedente
     }
   });
+  // Funzione per attivare/disattivare la modalità full screen
+  function toggleFullscreen() {
+    const elem = document.documentElement; // Seleziona l'elemento root (l'intera pagina)
+    const icon = document.getElementById("fullscreen-icon"); // Seleziona l'icona
+
+    if (!document.fullscreenElement) {
+      // Entra in modalità full screen
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        // Per Safari
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        // Per IE/Edge
+        elem.msRequestFullscreen();
+      }
+
+      // Cambia l'icona in "comprimi"
+      icon.classList.remove("fa-expand");
+      icon.classList.add("fa-compress");
+    } else {
+      // Esci dalla modalità full screen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        // Per Safari
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        // Per IE/Edge
+        document.msExitFullscreen();
+      }
+
+      // Cambia l'icona in "espandi"
+      icon.classList.remove("fa-compress");
+      icon.classList.add("fa-expand");
+    }
+  }
+
+  // Aggiungi l'evento al pulsante
+  document
+    .getElementById("fullscreen-toggle")
+    .addEventListener("click", toggleFullscreen);
+  document.getElementById("logo").addEventListener("click", showHome);
 });
