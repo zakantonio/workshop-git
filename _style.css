@@ -1,0 +1,332 @@
+@font-face {
+  font-family: Adelle_Reg;
+  src: url('assets/fonts/Adelle_Reg.otf') format('truetype');
+}
+
+:root {
+  --git-primary-color: #F44D27;
+  --git-secondary-color: #0588A6;
+  --git-font: 'Adelle_Reg', 'Segoe UI', sans-serif;
+  --git-text-color: #333;
+  --git-text-color-dark: #F1F0E8;
+  --git-bg-color: #F1F0E8;
+}
+
+/* Reset di base */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--git-font);
+  color: var(--git-text-color);
+  background-color: var(--git-bg-color);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* Stile delle pagine */
+.page {
+  display: none;
+  /* Nasconde tutte le pagine di default */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--git-bg-color);
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+  /* Permette lo scroll interno se il contenuto è troppo lungo */
+}
+
+.page.active {
+  display: block;
+  /* Mostra solo la pagina attiva */
+}
+
+/* Contenuto centrato */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Stile per titoli e sottotitoli */
+h1 {
+  font-size: 36px;
+  color: var(--git-primary-color);
+  margin: 0 0 20px 0;
+}
+
+/* Stile per i pulsanti */
+button {
+  background-color: var(--git-secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Stile per la lista delle parole chiave */
+.keyword-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.keyword-item {
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.keyword-item.active {
+  font-weight: bold;
+  color: var(--git-primary-color);
+}
+
+/* Layout per il contenuto delle parole chiave */
+.keyword-content {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.keyword-image {
+  width: 50%;
+  margin-left: 20px;
+}
+
+.keyword-image img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Stile per il footer */
+#footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+#footer-links li {
+  margin: 10px 0;
+}
+
+#footer-links a {
+  color: var(--git-primary-color);
+  text-decoration: none;
+}
+
+#footer-links a:hover {
+  text-decoration: underline;
+}
+
+.keyword-item.active {
+  font-weight: bold;
+  color: var(--git-primary-color);
+  background-color: rgba(240, 80, 51, 0.1);
+  /* Sfondo leggero per evidenziare */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Stile per il glossario */
+#glossary {
+  background-color: var(--git-bg-color);
+}
+
+#glossary-title {
+  text-align: center;
+  color: var(--git-primary-color);
+  margin-bottom: 30px;
+}
+
+#glossary-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 20px; /* Spazio tra le colonne */
+  justify-content: space-between;
+}
+
+#glossary-list li {
+  list-style: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(50% - 20px); /* 2 colonne su desktop */
+  box-sizing: border-box;
+}
+
+#glossary-list li h3 {
+  margin: 0;
+  color: var(--git-primary-color);
+  font-size: 18px;
+}
+
+#glossary-list li p {
+  margin: 10px 0 0;
+  color: var(--git-text-color);
+  font-size: 14px;
+}
+
+
+/* Stile per la home page */
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--git-bg-color);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#home .content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+#home .logo {
+  top: 0px;
+  position: absolute;
+  width: 100px;
+  left: 0px;
+  margin: 20px 40px;
+}
+/* Titolo e sottotitolo */
+#home .home-text {
+  text-align: left;
+}
+
+#home .home-text h1 {
+  font-size: 92px; /* Titolo molto grande */
+  color: var(--git-primary-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+#home .home-text h2 {
+  font-size: 24px; /* Sottotitolo più piccolo */
+  color: var(--git-text-color);
+  margin: 10px 0 0;
+}
+
+/* Azioni */
+#home-actions {
+  position: absolute;
+  bottom: 40px;
+}
+
+/* Azioni */
+#home-tip {
+  position: absolute;
+  right: 40px;
+  bottom: 32px;
+}
+
+#home-tip img {
+  width: 5vw;
+  opacity: 0.6;
+}
+
+#home-actions button {
+  background-color: var(--git-secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#home-actions button:hover {
+  background-color: darken(var(--git-secondary-color), 10%);
+}
+
+/* Stile per i bottoni di navigazione */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.nav-button {
+  background-color: var(--git-secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: darken(var(--git-secondary-color), 10%);
+}
+
+/* Responsive: impila i bottoni su mobile */
+@media (max-width: 768px) {
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-button {
+    width: 100%;
+  }
+  
+  #home .home-text h1 {
+    font-size: 36px;
+  }
+
+  #home .home-text h2 {
+    font-size: 18px;
+  }
+
+  #home-actions button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #glossary-list li {
+    flex: 1 1 100%; /* 1 colonna su mobile */
+  }
+
+  .keyword-content {
+    flex-direction: column;
+  }
+
+  .keyword-list,
+  .keyword-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #home-tip {
+    display: none;
+  }
+
+}
