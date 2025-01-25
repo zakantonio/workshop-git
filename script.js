@@ -299,12 +299,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funzione per aggiornare la barra di caricamento
   function updateProgressBar() {
+    let progressBar = document.getElementById('progress')
     if (currentPageIndex === 0) {
       progressBar.style.width = 0;
     } else {
       const delta = 1 / pages.length * 100;
       const percent = (currentPageIndex / pages.length) * 100;
-      document.getElementById('progress').style.width = percent + delta + '%';
+      progressBar.style.width = percent + delta + '%';
     }
   }
 

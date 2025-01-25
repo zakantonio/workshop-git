@@ -220,11 +220,12 @@ button:hover {
   left: 0px;
   z-index: 10;
   margin: 20px 40px;
+  visibility: hidden;
 }
 
 #logo-big {
 width: 200px;
-margin-bottom: 40px;
+margin-bottom: 20px;
 }
 
 #fullscreen-toggle {
