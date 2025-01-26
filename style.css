@@ -64,6 +64,7 @@ br {
   flex-direction: column;
   max-width: 1200px;
   margin: 80px auto;
+  padding-bottom: 20px;
 }
 
 .custom-content {
@@ -307,6 +308,11 @@ button:hover {
 #home-actions {
   position: absolute;
   bottom: 40px;
+  margin-right: 20px;
+}
+
+#glossary-actions, #footer-actions {
+margin-top: 40px;
 }
 
 /* Azioni */
@@ -322,7 +328,9 @@ button:hover {
   filter: grayscale(1);
 }
 
-#home-actions button {
+#home-actions button, 
+#glossary-actions button, 
+#footer-actions button {
   background-color: var(--git-secondary-color);
   color: white;
   border: none;
@@ -337,9 +345,9 @@ button:hover {
 /* Stile per i bottoni di navigazione */
 .navigation-buttons {
   display: flex;
-  margin-top: 30px;
-  position: absolute;
-  bottom: 40px;
+  margin-top: 10px;
+  position: fixed;
+  bottom: 30px;
   gap: 10px;
 }
 
@@ -397,6 +405,12 @@ button:hover {
   /*   width: 100%; */
   /* } */
 
+  .page {
+    width: auto;
+  }
+  #fullscreen-toggle {
+    margin: 20px 20px;
+  }
   #content {
     margin: 80px 0;
   }
@@ -414,7 +428,7 @@ button:hover {
     font-size: 18px;
   }
 
-  #home-actions button {
+  #home-actions button, #glossary-actions button, #footer-actions button {
     width: 100%;
     margin: 10px 0;
   }

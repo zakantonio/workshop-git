@@ -197,6 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       glossaryList.appendChild(li);
     });
+
+    // Aggiungi le azioni
+    const actionsContainer = document.getElementById("glossary-actions");
+    data.glossary.actions.forEach((action) => {
+      const button = document.createElement("button");
+      button.innerText = action.text;
+      button.addEventListener("click", () =>
+        showPage(action.link.replace("#", ""))
+      );
+      actionsContainer.appendChild(button);
+    });
   }
 
   // Renderizza il Footer
@@ -212,6 +223,17 @@ document.addEventListener("DOMContentLoaded", () => {
       a.title = link.description;
       li.appendChild(a);
       footerLinks.appendChild(li);
+    });
+
+    // Aggiungi le azioni
+    const actionsContainer = document.getElementById("footer-actions");
+    data.footer.actions.forEach((action) => {
+      const button = document.createElement("button");
+      button.innerText = action.text;
+      button.addEventListener("click", () =>
+        showPage(action.link.replace("#", ""))
+      );
+      actionsContainer.appendChild(button);
     });
   }
 
@@ -283,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
             data.pages[currentPageIndex - 1].keywords[
               currentKeywordIndex
             ].concept;
-        }
+        };
       }
     }
   }
