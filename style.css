@@ -23,6 +23,12 @@ html {
   background-color: var(--git-bg-color);
 }
 
+br {
+  display: block; /* Tratta <br> come un blocco */
+  margin-bottom: 0.7em; /* Aggiunge spazio dopo ogni <br> */
+  content: ""; /* Aggiunge contenuto vuoto (opzionale) */
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -124,7 +130,7 @@ button:hover {
   height: auto;
 }
 .keyword-image p {
-  max-width: 50%;
+  width: 50%;
 }
 
 /* Stile per il footer */

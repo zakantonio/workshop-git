@@ -13,8 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
       renderPages();
       renderGlossary();
       renderFooter();
-      showHome();
+      showRequestPage();
     });
+
+    window.addEventListener('popstate', (event) => {
+      const pageId = event.state?.pageId || 'home'; // Usa l'ID della pagina dallo stato o la pagina predefinita
+      showPage(pageId);
+    });
+
+  function showRequestPage() {
+    // Verifica se c'è un hash nell'URL
+    const hash = window.location.hash.substring(1); // Rimuovi il "#" dall'hash
+
+    // Mostra la pagina corrispondente all'hash o la pagina predefinita
+    if (hash && document.getElementById(hash)) {
+      showPage(hash);
+    } else {
+      showHome();
+    }
+  }
 
   // Renderizza la Home Page
   function renderHome() {
@@ -36,56 +53,98 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Renderizza le Pagine Standard e Custom
   function renderPages() {
     // Aggiungi la home all'array delle pagine
     const homePage = document.getElementById("home");
     pages.push(homePage);
 
     const pagesContainer = document.getElementById("pages");
+
     data.pages.forEach((page, index) => {
       const pageElement = document.createElement("div");
       pageElement.id = page.id;
       pageElement.className = "page";
-      pageElement.innerHTML = `
-        <div class="content">
-          <h1>${page.title}</h1>
-          <h2>${page.subtitle}</h2>
-          ${
-            page.type === "standard"
-              ? `
-            <div class="keyword-content">
-              <div class="keyword-list">
-                ${page.keywords
-                  .map(
-                    (keyword, i) => `
-                  <div class="keyword-item" data-index="${i}">${keyword.name}</div>
-                `
-                  )
-                  .join("")}
-              </div>
-              <div class="keyword-image">
-                <p>${page.keywords[0].concept}</p>
-                <img src="${page.keywords[0].image}" alt="${
-                  page.keywords[0].name
-                }">
-              </div>
-            </div>
-          `
-              : `
-            <div class="custom-content">
-              <p>${page.content.text}</p>
-              <img src="${page.content.image}" alt="${page.title}">
-            </div>
-          `
-          }
-          <!-- Bottoni di navigazione -->
-          <div class="navigation-buttons">
-            <button class="nav-button prev-button"> ← </button>
-            <button class="nav-button next-button"> → </button>
-          </div>
-        </div>
-      `;
+
+      const contentDiv = document.createElement("div");
+      contentDiv.className = "content";
+
+      // Aggiungi il titolo e il sottotitolo
+      const title = document.createElement("h1");
+      title.textContent = page.title;
+      contentDiv.appendChild(title);
+
+      const subtitle = document.createElement("h2");
+      subtitle.textContent = page.subtitle;
+      contentDiv.appendChild(subtitle);
+
+      if (page.type === "standard") {
+        // Se la pagina è di tipo "standard"
+        const keywordContent = document.createElement("div");
+        keywordContent.className = "keyword-content";
+
+        const keywordList = document.createElement("div");
+        keywordList.className = "keyword-list";
+
+        // Ciclo sulle keywords
+        page.keywords.forEach((keyword, i) => {
+          const keywordItem = document.createElement("div");
+          keywordItem.className = "keyword-item";
+          keywordItem.dataset.index = i;
+          keywordItem.textContent = keyword.name;
+          keywordList.appendChild(keywordItem);
+        });
+
+        const keywordImage = document.createElement("div");
+        keywordImage.className = "keyword-image";
+
+        // Mostra il concetto e l'immagine della prima keyword
+        if (page.keywords.length > 0) {
+          const concept = document.createElement("p");
+          concept.innerHTML = page.keywords[0].concept; // Usa innerHTML per interpretare i tag HTML
+          keywordImage.appendChild(concept);
+
+          const image = document.createElement("img");
+          image.src = page.keywords[0].image;
+          image.alt = page.keywords[0].name;
+          keywordImage.appendChild(image);
+        }
+
+        keywordContent.appendChild(keywordList);
+        keywordContent.appendChild(keywordImage);
+        contentDiv.appendChild(keywordContent);
+      } else {
+        // Se la pagina è di tipo "custom"
+        const customContent = document.createElement("div");
+        customContent.className = "custom-content";
+
+        const text = document.createElement("p");
+        text.innerHTML = page.content.text; // Usa innerHTML per interpretare i tag HTML
+        customContent.appendChild(text);
+
+        const image = document.createElement("img");
+        image.src = page.content.image;
+        image.alt = page.title;
+        customContent.appendChild(image);
+
+        contentDiv.appendChild(customContent);
+      }
+
+      // Aggiungi i bottoni di navigazione
+      const navigationButtons = document.createElement("div");
+      navigationButtons.className = "navigation-buttons";
+
+      const prevButton = document.createElement("button");
+      prevButton.className = "nav-button prev-button";
+      prevButton.textContent = "←";
+      navigationButtons.appendChild(prevButton);
+
+      const nextButton = document.createElement("button");
+      nextButton.className = "nav-button next-button";
+      nextButton.textContent = "→";
+      navigationButtons.appendChild(nextButton);
+
+      contentDiv.appendChild(navigationButtons);
+      pageElement.appendChild(contentDiv);
       pagesContainer.appendChild(pageElement);
       pages.push(pageElement); // Aggiungi la pagina all'array
     });
@@ -171,9 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setupKeywordClickListeners(); // Imposta i listener per il click
     }
 
-    document.getElementById("logo").style.visibility = currentPageIndex === 0 ? "hidden" : "visible";
+    document.getElementById("logo").style.visibility =
+      currentPageIndex === 0 ? "hidden" : "visible";
 
     updateProgressBar();
+
+    // Aggiorna l'URL con l'ID della pagina
+    history.pushState({ pageId }, `Page ${pageId}`, `#${pageId}`);
   }
 
   function showHome() {
@@ -299,13 +362,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funzione per aggiornare la barra di caricamento
   function updateProgressBar() {
-    let progressBar = document.getElementById('progress')
+    let progressBar = document.getElementById("progress");
     if (currentPageIndex === 0) {
       progressBar.style.width = 0;
     } else {
-      const delta = 1 / pages.length * 100;
+      const delta = (1 / pages.length) * 100;
       const percent = (currentPageIndex / pages.length) * 100;
-      progressBar.style.width = percent + delta + '%';
+      progressBar.style.width = percent + delta + "%";
     }
   }
 
