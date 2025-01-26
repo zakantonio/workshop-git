@@ -388,6 +388,14 @@ margin-top: 40px;
   margin-top: 60px;
 }
 
+#meme-container {
+  width: 100%;
+  display: flex;
+}
+#meme-container img{
+  max-width: 320px;
+}
+
 @media (max-width: 1300px) {
   .content {
     margin: 80px 0;
