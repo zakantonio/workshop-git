@@ -57,7 +57,7 @@
         },
         {
           "name": "Working Directory",
-          "concept": "La working directory invece è la cartella locale sul tuo computer dove lavori ai file del progetto.\nContiene i file che stai modificando.",
+          "concept": "La working directory invece è la cartella locale sul tuo computer dove lavori ai file del progetto.\nContiene i file che stai modificando.\nCoincide con la cartella della repository, ma è determinata dal branch su cui stiamo lavorando.",
           "image": "assets/images/problemi-comuni.jpg"
         },
         {
@@ -141,7 +141,7 @@
         },
         {
           "name": "Senza conflitti",
-          "concept": "Git tenta sempre di risolvere i conflitti automaticamente.\nIn caso di esito positivo, prepara un messaggio per il commit con tutti i dettagli sul merge e gli eventuali file dove ha risolto conflitti.\nSe il comando viene eseguito da teminale, verrà chiesto di confermare il testo.\nL'editor di testo di default è Vim, dunque per salvare ed uscire dovrai digitare \":wq\" seguito da Invio.",
+          "concept": "Git tenta sempre di risolvere i conflitti automaticamente.\nIn caso di esito positivo, prepara un messaggio per il commit con i dettagli.\nSe il comando viene eseguito da teminale, verrà chiesto di confermare il testo.\nL'editor di testo di default è Vim, dunque per salvare ed uscire dovrai digitare \":wq\" seguito da Invio.",
           "image": "assets/images/git-merge-no-conflicts.png"
         },
         {
@@ -152,7 +152,17 @@
         {
           "name": "Come risolvere",
           "concept": "Per risolvere il conflitto dobbiamo:\n  • Aprire i file in conflitto\n  • Decidere quali modifiche mantenere (o come combinarle)\n  • Rimuovere i marcatori di conflitto\n  • Aggiungere i file risolti con git add\n  • Completare il merge con git commit",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-merge-conflict-commit.png"
+        },
+        {
+          "name": "Branch - Comandi",
+          "concept": "",
+          "image": "assets/images/git-command-branching.png"
+        },
+        {
+          "name": "Merge - Comandi",
+          "concept": "",
+          "image": "assets/images/git-command-merging.png"
         }
       ]
     },
@@ -165,18 +175,28 @@
       "keywords": [
         {
           "name": "GitHub",
-          "concept": "GitHub è una piattaforma di hosting per repository Git che facilita la collaborazione remota.",
-          "image": "url('github.jpg')"
+          "concept": "GitHub è una piattaforma di hosting e collaborazione remota basata su Git.\nFondata nel 2008, GitHub è diventata uno degli strumenti più popolari per sviluppatori e team che lavorano su progetti software, ma è utilizzata anche per progetti di documentazione, design e molto altro.\nGitHub è ampiamente utilizzato per progetti open source, con milioni di repository pubblici disponibili.",
+          "image": "assets/images/github-logo.png"
         },
         {
-          "name": "Altri hiosting",
-          "concept": "Repository simili possono essere clonati o forkati per collaborare su progetti correlati.",
-          "image": "url('similar-repos.jpg')"
+          "name": "Altri hosting",
+          "concept": "  • GitLab: oltre alle funzionalità di hosting Git, GitLab offre strumenti integrati per CI/CD, monitoraggio e gestione dei progetti.\n  • BitBucket: Di proprietà di Atlassian, Bitbucket è particolarmente popolare tra i team che utilizzano altri strumenti Atlassian come Jira e Confluence.",
+          "image": "assets/images/trio-magico.png"
         },
         {
-          "name": "Comandi base",
-          "concept": "Comandi come `git clone`, `git pull`, e `git push` sono essenziali per la collaborazione remota.",
-          "image": "url('basic-commands.jpg')"
+          "name": "Clone",
+          "concept": "Per iniziare a lavorare su una repository remota, ci spostiamo nella cartella desiderata e si usa il comando git clone che letteralmente clona il progetto in locale.",
+          "image": "assets/images/git-clone.png"
+        },
+        {
+          "name": "Publication",
+          "concept": "Se invece abbiamo creato in locale il progetto e vogliamo caricarlo sulla nostra repository remota, dobbiamo prima:\n  • creare la repo remota vuota\n  • copiare l'url\n  • impostare l'url nella repo locale con git remote\n  • pushare il branch",
+          "image": "assets/images/git-publication.png"
+        },
+        {
+          "name": "Push, Pull e Fetch",
+          "concept": "Questi sono i comandi base per scambiare le informazioni tra il branch attivo in locale e quello in remoto.",
+          "image": "assets/images/git-command-pushpull.png"
         }
       ]
     },
@@ -189,8 +209,13 @@
       "keywords": [
         {
           "name": "Rebase",
-          "concept": "Riorganizzare i commit con `git rebase <branch>`.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "concept": "Cosa fa il rebase?\n  • Riapplica i commit: prende i commit di un branch e li \"riapplica\" su un altro branch.\n  • Modifica la cronologia: a differenza del merge, il rebase riscrive la cronologia dei commit, creando una linea temporale più lineare.\n  • Evita commit di merge: non crea un commit di merge aggiuntivo, mantenendo la cronologia più pulita.\nSi usa dunque quando vogliamo matenere una cronologia lineare e pulita ed evitare commit di merge.",
+          "image": "assets/images/git-rebase.png"
+        },
+        {
+          "name": "Rebase - Comandi",
+          "concept": "Quella del rebase è una procedura articolata poiché riscrive la history del branch.\nPer fare questo riapplica ogni commit singolarmente, perciò è facile avere conflitti per ogni commit.\nInoltre dopo aver pubblicato il branch, gli altri utenti dovranno necessariamente resettare il loro branch locale con quello remoto.",
+          "image": "assets/images/git-command-branching.png"
         },
         {
           "name": "Cherry-pick",
