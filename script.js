@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aggiorna l'URL con l'ID della pagina
     history.pushState({ pageId }, `Page ${pageId}`, `#${pageId}`);
-    
+
     updateProgressBar();
   }
 
@@ -276,15 +276,15 @@ document.addEventListener("DOMContentLoaded", () => {
         keywordItems[currentKeywordIndex].classList.add("active");
         keywordImage.src =
           data.pages[currentPageIndex - 1].keywords[currentKeywordIndex].image;
-        keywordConcept.innerText =
-          data.pages[currentPageIndex - 1].keywords[
-            currentKeywordIndex
-          ].concept;
+        keywordImage.onload = function () {
+          fadeInFunc(keywordImage);
+          fadeInFunc(keywordConcept);
+          keywordConcept.innerText =
+            data.pages[currentPageIndex - 1].keywords[
+              currentKeywordIndex
+            ].concept;
+        }
       }
-
-      fadeInFunc(keywordImage);
-
-      fadeInFunc(keywordConcept);
     }
   }
 

@@ -57,7 +57,7 @@
         },
         {
           "name": "Working Directory",
-          "concept": "La working directory invece è la cartella locale sul tuo computer dove lavori ai file del progetto.\nContiene i file che stai modificando.\nCoincide con la cartella della repository, ma è determinata dal branch su cui stiamo lavorando.",
+          "concept": "La working directory invece è la cartella locale sul tuo computer dove lavori ai file del progetto.\nContiene i file che stai modificando.\nCoincide con la cartella del repository, ma è determinata dal branch su cui stiamo lavorando.",
           "image": "assets/images/problemi-comuni.jpg"
         },
         {
@@ -115,7 +115,7 @@
       "id": "custom-page-1",
       "type": "custom",
       "title": "Comandi iniziali",
-      "subtitle": "Comandi essenziali per creare una repository Git",
+      "subtitle": "Comandi essenziali per creare un repository Git",
       "background": "#ffffff",
       "content": {
         "text": "La prima volta che eseguiamo Git, dovremo configurare name ed email, questi verranno associati a tutti i futuri commit.<br>Il comando git init dovrà essere eseguito nella cartella del nostro progetto",
@@ -185,12 +185,12 @@
         },
         {
           "name": "Clone",
-          "concept": "Per iniziare a lavorare su una repository remota, ci spostiamo nella cartella desiderata e si usa il comando git clone che letteralmente clona il progetto in locale.",
+          "concept": "Per iniziare a lavorare su un repository remoto, ci spostiamo nella cartella desiderata e si usa il comando git clone che letteralmente clona il progetto in locale.",
           "image": "assets/images/git-clone.png"
         },
         {
           "name": "Publication",
-          "concept": "Se invece abbiamo creato in locale il progetto e vogliamo caricarlo sulla nostra repository remota, dobbiamo prima:\n  • creare la repo remota vuota\n  • copiare l'url\n  • impostare l'url nella repo locale con git remote\n  • pushare il branch",
+          "concept": "Se invece abbiamo creato in locale il progetto e vogliamo caricarlo sul nostro repository remota, dobbiamo prima:\n  • creare la repo remota vuota\n  • copiare l'url\n  • impostare l'url nella repo locale con git remote\n  • pushare il branch",
           "image": "assets/images/git-publication.png"
         },
         {
