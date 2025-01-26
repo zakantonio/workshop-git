@@ -391,6 +391,10 @@ button:hover {
   /*   width: 100%; */
   /* } */
 
+  #content {
+    margin: 80px 0;
+  }
+
   #home .home-text h1 {
     font-size: 36px;
   }
@@ -415,6 +419,12 @@ button:hover {
 
   .keyword-list,
   .keyword-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .keyword-image p,
+  .keyword-image img {
     width: 100%;
     margin-left: 0;
   }

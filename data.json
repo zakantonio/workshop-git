@@ -215,7 +215,17 @@
         {
           "name": "Rebase - Comandi",
           "concept": "Quella del rebase è una procedura articolata poiché riscrive la history del branch.\nPer fare questo riapplica ogni commit singolarmente, perciò è facile avere conflitti per ogni commit.\nInoltre dopo aver pubblicato il branch, gli altri utenti dovranno necessariamente resettare il loro branch locale con quello remoto.",
-          "image": "assets/images/git-command-branching.png"
+          "image": "assets/images/git-command-rebase.png"
+        },
+        {
+          "name": "Reset",
+          "concept": "Il comando git reset è uno strumento che permette di ripristinare lo stato del repository a un commit specifico, modificando la cronologia dei commit o l'area di staging. A seconda delle opzioni utilizzate, può agire su tre aree principali:\n  • HEAD: Sposta il puntatore del branch corrente a un commit specifico.\n  • Staging area: Aggiorna l'area di staging per riflettere lo stato del commit specificato.\n  • Working directory: Modifica i file nella directory di lavoro per corrispondere allo stato del commit specificato.",
+          "image": "assets/images/git-reset.png"
+        },
+        {
+          "name": "Revert",
+          "concept": "Lorem ipsum",
+          "image": "assets/images/git-reset-revert.png"
         },
         {
           "name": "Cherry-pick",
