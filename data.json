@@ -305,6 +305,17 @@
         "text": "  • Gitflow: Un flusso di lavoro comune per la collaborazione.<br>  • Convenzioni per i commit message: Scrivere messaggi di commit chiari e concisi.<br>  • Code review process: Revisionare il codice prima di unire le modifiche.<br>  • Branch naming conventions: Usare nomi significativi per i branch.<br>  • Release management: Gestire le release in modo strutturato.",
         "image": "assets/images/gitflowCompleto.png"
       }
+    },
+    {
+      "id": "page-qrcode",
+      "type": "custom",
+      "title": "Link alla presentazione",
+      "subtitle": "",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/qrcode.png"
+      }
     }
   ],
   "glossary": {
