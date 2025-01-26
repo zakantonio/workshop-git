@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       showRequestPage();
     });
 
-    window.addEventListener('popstate', (event) => {
-      const pageId = event.state?.pageId || 'home'; // Usa l'ID della pagina dallo stato o la pagina predefinita
-      showPage(pageId);
-    });
+  window.addEventListener("popstate", (event) => {
+    const pageId = event.state?.pageId || "home"; // Usa l'ID della pagina dallo stato o la pagina predefinita
+    showPage(pageId);
+  });
 
   function showRequestPage() {
     // Verifica se c'è un hash nell'URL
@@ -221,6 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
+
+    fadeInFunc(document.getElementById(pageId).querySelector(".content")); // effetto fadein sul content
+
     currentPageIndex = pages.findIndex((page) => page.id === pageId); // Aggiorna l'indice della pagina corrente
 
     // Resetta l'indice del concetto solo se la pagina è di tipo "standard"
@@ -233,10 +236,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("logo").style.visibility =
       currentPageIndex === 0 ? "hidden" : "visible";
 
-    updateProgressBar();
-
     // Aggiorna l'URL con l'ID della pagina
     history.pushState({ pageId }, `Page ${pageId}`, `#${pageId}`);
+    
+    updateProgressBar();
   }
 
   function showHome() {
@@ -278,6 +281,10 @@ document.addEventListener("DOMContentLoaded", () => {
             currentKeywordIndex
           ].concept;
       }
+
+      fadeInFunc(keywordImage);
+
+      fadeInFunc(keywordConcept);
     }
   }
 
@@ -374,6 +381,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Aggiorna la barra di caricamento al caricamento della pagina
   updateProgressBar();
+
+  function fadeInFunc(el) {
+    el.style.opacity = 0;
+    var tick = function () {
+      el.style.opacity = +el.style.opacity + 0.05;
+      if (+el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) ||
+          setTimeout(tick, 16);
+      }
+    };
+    tick();
+  }
 
   // Aggiungi l'evento al pulsante
   document
