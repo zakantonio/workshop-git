@@ -70,6 +70,7 @@ br {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .custom-content img {
@@ -395,6 +396,11 @@ button:hover {
     margin: 80px 0;
   }
 
+  .custom-content p,  .custom-content img{
+    max-width: 100%;
+
+  }
+
   #home .home-text h1 {
     font-size: 36px;
   }
@@ -425,6 +431,7 @@ button:hover {
 
   .keyword-image p,
   .keyword-image img {
+    max-width: 100%;
     width: 100%;
     margin-left: 0;
   }

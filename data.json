@@ -20,7 +20,7 @@
   },
   "pages": [
     {
-      "id": "standard-page-1",
+      "id": "page-getting-started",
       "type": "standard",
       "title": "Esigenza",
       "subtitle": "Perché abbiamo bisogno di Git?",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "id": "standard-page-2",
+      "id": "page-intro",
       "type": "standard",
       "title": "Introduzione a Git",
       "subtitle": "Come funziona?",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "id": "standard-page-3",
+      "id": "page-file-management",
       "type": "standard",
       "title": "Gestione Base dei File",
       "subtitle": "Come tracciare le modifiche ai file nel repository",
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "id": "custom-page-1",
+      "id": "page-base-commands",
       "type": "custom",
       "title": "Comandi iniziali",
       "subtitle": "Comandi essenziali per creare un repository Git",
@@ -123,7 +123,7 @@
       }
     },
     {
-      "id": "standard-page-4",
+      "id": "page-branch-merge",
       "type": "standard",
       "title": "Branching e Merging",
       "subtitle": "Gestione dei rami di sviluppo paralleli e loro riconciliazione",
@@ -136,7 +136,7 @@
         },
         {
           "name": "Merge",
-          "concept": "Il merge è il processo di riconciliazione tra due branch.\nQuando abbiamo completato il lavoro su un branch e vogliamo integrare le modifiche nel branch principale (solitamente main o master), utilizziamo il comando git merge.",
+          "concept": "Il merge è il processo di riconciliazione tra due branch.\nQuando abbiamo completato il lavoro su un branch e vogliamo integrare le modifiche nel branch principale (solitamente main o master), utilizziamo il comando 'git merge'.",
           "image": "assets/images/git-merge.png"
         },
         {
@@ -151,7 +151,7 @@
         },
         {
           "name": "Come risolvere",
-          "concept": "Per risolvere il conflitto dobbiamo:\n  • Aprire i file in conflitto\n  • Decidere quali modifiche mantenere (o come combinarle)\n  • Rimuovere i marcatori di conflitto\n  • Aggiungere i file risolti con git add\n  • Completare il merge con git commit",
+          "concept": "Per risolvere il conflitto dobbiamo:\n  • Aprire i file in conflitto\n  • Decidere quali modifiche mantenere (o come combinarle)\n  • Rimuovere i marcatori di conflitto\n  • Aggiungere i file risolti con 'git add'\n  • Completare il merge con 'git commit'",
           "image": "assets/images/git-merge-conflict-commit.png"
         },
         {
@@ -167,7 +167,7 @@
       ]
     },
     {
-      "id": "custom-page-2",
+      "id": "page-remote",
       "type": "standard",
       "title": "Collaborazione Remota con Git",
       "subtitle": "Come collaborare con Git in un ambiente remoto",
@@ -185,12 +185,12 @@
         },
         {
           "name": "Clone",
-          "concept": "Per iniziare a lavorare su un repository remoto, ci spostiamo nella cartella desiderata e si usa il comando git clone che letteralmente clona il progetto in locale.",
+          "concept": "Per iniziare a lavorare su un repository remoto, ci spostiamo nella cartella desiderata e si usa il comando 'git clone' che letteralmente clona il progetto in locale.",
           "image": "assets/images/git-clone.png"
         },
         {
           "name": "Publication",
-          "concept": "Se invece abbiamo creato in locale il progetto e vogliamo caricarlo sul nostro repository remota, dobbiamo prima:\n  • creare la repo remota vuota\n  • copiare l'url\n  • impostare l'url nella repo locale con git remote\n  • pushare il branch",
+          "concept": "Se invece abbiamo creato in locale il progetto e vogliamo caricarlo sul nostro repository remota, dobbiamo prima:\n  • creare la repo remota vuota\n  • copiare l'url\n  • impostare l'url nella repo locale con 'git remote'\n  • pushare il branch",
           "image": "assets/images/git-publication.png"
         },
         {
@@ -201,9 +201,9 @@
       ]
     },
     {
-      "id": "standard-page-5",
+      "id": "page-advanced-commands",
       "type": "standard",
-      "title": "Argomenti Avanzati",
+      "title": "Comandi Avanzati",
       "subtitle": "Tecniche e comandi più sofisticati per gestire situazioni complesse",
       "background": "#f5f5f5",
       "keywords": [
@@ -219,53 +219,64 @@
         },
         {
           "name": "Reset",
-          "concept": "Il comando git reset è uno strumento che permette di ripristinare lo stato del repository a un commit specifico, modificando la cronologia dei commit o l'area di staging. A seconda delle opzioni utilizzate, può agire su tre aree principali:\n  • HEAD: Sposta il puntatore del branch corrente a un commit specifico.\n  • Staging area: Aggiorna l'area di staging per riflettere lo stato del commit specificato.\n  • Working directory: Modifica i file nella directory di lavoro per corrispondere allo stato del commit specificato.",
+          "concept": "Il comando 'git reset' è uno strumento che permette di ripristinare lo stato del repository a un commit specifico, modificando la cronologia dei commit o l'area di staging.\nHa tre modalità:\n  • --soft: Quando vuoi annullare un commit ma mantenere le modifiche pronte per un nuovo commit.\n  • --mixed: Quando vuoi annullare un commit e rimuovere le modifiche dall'area di staging, ma mantenere le modifiche nella working directory.\n  • --hard: Quando vuoi annullare completamente un commit e ripristinare lo stato del repository a un commit precedente, eliminando tutte le modifiche non commitate.",
           "image": "assets/images/git-reset.png"
         },
         {
+          "name": "Reset - Comandi",
+          "concept": "",
+          "image": "assets/images/git-command-reset.png"
+        },
+        {
           "name": "Revert",
-          "concept": "Lorem ipsum",
+          "concept": "Il comando 'git revert' è utilizzato per annullare le modifiche introdotte da uno o più commit precedenti, creando un nuovo commit che inverte le modifiche apportate.\nA differenza di 'git reset', 'git revert' non modifica la cronologia esistente, ma aggiunge un nuovo commit che annulla le modifiche, rendendolo sicuro da usare anche su branch condivisi.",
           "image": "assets/images/git-reset-revert.png"
         },
         {
+          "name": "Revert - Comandi",
+          "concept": "",
+          "image": "assets/images/git-command-revert.png"
+        }
+      ]
+      },
+      {
+        "id": "page-extra",
+        "type": "standard",
+        "title": "Tips & Tricks",
+        "subtitle": "Alcuni strumenti utili per rimanere flessibili",
+        "background": "#f5f5f5",
+        "keywords": [
+        {
           "name": "Cherry-pick",
-          "concept": "Applicare un commit specifico con `git cherry-pick <commit-hash>`.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "concept": "Il comando 'git cherry-pick' permette di applicare un commit specifico da un branch a un altro branch.\nIn pratica, \"copia\" un commit da una parte della cronologia e lo applica al branch corrente, creando un nuovo commit con le stesse modifiche.\nÈ utile quando vuoi portare singole modifiche da un branch a un altro senza unire l'intera cronologia.",
+          "image": "assets/images/git-command-cherry-pick.png"
         },
         {
           "name": "Patch",
-          "concept": "Una patch è un file che contiene le differenze tra due versioni di un file o di un insieme di file. Può essere applicata per riprodurre le stesse modifiche in un altro repository.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "concept": "La patch è un file di testo che contiene delle differenze (diff).\nLe patch sono utili per condividere modifiche tra repository o branch senza dover condividere l'intera cronologia.\nGit permette di creare e applicare patch utilizzando i comandi 'git diff' e 'git apply'.",
+          "image": "assets/images/git-command-patch.png"
         },
         {
           "name": "Stash",
-          "concept": "Salvare temporaneamente le modifiche con `git stash`.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "concept": "Il comando 'git stash' utilizzato per salvare temporaneamente le modifiche non ancora commitate, permettendoti di cambiare branch, pullare dal branch remoto o lavorare su altre modifiche senza dover fare commit.\nLe modifiche salvate vengono memorizzate e possono essere riapplicate in un secondo momento.",
+          "image": "assets/images/git-command-stash.png"
         },{
-          "name": "Git Blame",
-          "concept": "Il comando `git blame` mostra chi ha modificato ogni riga di un file e quando. È utile per tracciare l'origine di una modifica o identificare l'autore di un bug.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "name": "Blame",
+          "concept": "Il comando 'git blame' è utilizzato per visualizzare informazioni dettagliate su ogni riga di un file, mostrando chi ha effettuato l'ultima modifica a quella riga e in quale commit.\nÈ uno strumento utile per tracciare la storia delle modifiche di un file e identificare chi ha introdotto specifiche modifiche.",
+          "image": "assets/images/git-command-blame.png"
         }
       ]
     },
     {
-      "id": "standard-page-6",
-      "type": "standard",
-      "title": "Trello e simili",
-      "subtitle": "",
+      "id": "page-trello",
+      "type": "custom",
+      "title": "Trello",
+      "subtitle": "Per la gestione dei task di un progetto",
       "background": "#f5f5f5",
-      "keywords": [
-        {
-          "name": "Trello",
-          "concept": "Il comando `git blame` mostra chi ha modificato ogni riga di un file e quando. È utile per tracciare l'origine di una modifica o identificare l'autore di un bug.",
-          "image": "assets/images/problemi-comuni.jpg"
-        },
-        {
-          "name": "Altri",
-          "concept": "Una patch è un file che contiene le differenze tra due versioni di un file o di un insieme di file. Può essere applicata per riprodurre le stesse modifiche in un altro repository.",
-          "image": "assets/images/problemi-comuni.jpg"
-        }
-      ]
+      "content": {
+        "text": "Trello è una piattaforma di gestione dei progetti e delle attività.<br>È progettata per aiutare piccoli team e individui a organizzare, tracciare e collaborare su progetti in modo visivo e intuitivo.<br>Trello utilizza board, liste e card per rappresentare task, flussi di lavoro e progressi.",
+        "image": "assets/images/trello-boards.png"
+      }
     },
     {
       "id": "custom-page-3",
