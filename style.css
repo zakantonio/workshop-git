@@ -23,13 +23,11 @@ html {
   background-color: var(--git-bg-color);
 }
 
-/* 
 br {
   display: block;
   margin-bottom: 0.7em;
   content: "";
 }
-*/
 
 #app {
   display: flex;

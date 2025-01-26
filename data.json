@@ -34,12 +34,12 @@
         {
           "name": "Soluzione",
           "concept": "Git nasce proprio per risolvere questi problemi, infatti puoi:\n  • tornare a qualsiasi versione precedente del tuo codice\n  • collaborare con altri sviluppatori senza conflitti\n  • sperimentare senza rischiare di compromettere il progetto\n  • tenere traccia di chi ha fatto quali modifiche e quando",
-          "image": "assets/images/git-copertina.webp"
+          "image": "assets/images/git-copertina.jpg"
         },
         {
           "name": "Cos'è Git",
           "concept": "\"Git è un software per il controllo di versione distribuito utilizzabile da interfaccia a riga di comando, creato da Linus Torvalds nel 2005.\nGit (che nello slang britannico significa idiota) nacque per essere un semplice strumento per facilitare lo sviluppo del kernel Linux ed è diventato uno degli strumenti di controllo versione più diffusi.\"\n \n Fonte: Wikipedia",
-          "image": "assets/images/git-copertina.webp"
+          "image": "assets/images/git-copertina.jpg"
         }
       ]
     },
@@ -132,17 +132,22 @@
         {
           "name": "Branch",
           "concept": "Il branch in Git è uno strumento fondamentale che permette di creare una \"diramazione\" del codice principale. Questo è particolarmente utile quando:\n  • Si vuole sviluppare una nuova funzionalità senza interferire con il codice principale\n  • Si devono fare correzioni di bug\n  • Si vogliono testare modifiche sperimentali",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-branch.png"
         },
         {
           "name": "Merge",
           "concept": "Il merge è il processo di riconciliazione tra due branch.\nQuando abbiamo completato il lavoro su un branch e vogliamo integrare le modifiche nel branch principale (solitamente main o master), utilizziamo il comando git merge.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-merge.png"
         },
         {
-          "name": "Conflitti",
-          "concept": "Durante il merge possono verificarsi dei conflitti quando:\n  • Lo stesso file è stato modificato in entrambi i branch\n  • Le modifiche si sovrappongono nelle stesse righe di codice.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "name": "Senza conflitti",
+          "concept": "Git tenta sempre di risolvere i conflitti automaticamente.\nIn caso di esito positivo, prepara un messaggio per il commit con tutti i dettagli sul merge e gli eventuali file dove ha risolto conflitti.\nSe il comando viene eseguito da teminale, verrà chiesto di confermare il testo.\nL'editor di testo di default è Vim, dunque per salvare ed uscire dovrai digitare \":wq\" seguito da Invio.",
+          "image": "assets/images/git-merge-no-conflicts.png"
+        },
+        {
+          "name": "Con conflitti",
+          "concept": "Possono invece verificarsi dei conflitti quando:\n  • Lo stesso file è stato modificato in entrambi i branch\n  • Le modifiche si sovrappongono nelle stesse righe di codice.\nPer gestire i conflitti, Git marca nel codice le aree problematiche con dei marcatori speciali",
+          "image": "assets/images/git-merge-conflicts.png"
         },
         {
           "name": "Come risolvere",
@@ -310,6 +315,11 @@
       {
         "text": "Raccolta di .gitignore",
         "url": "https://www.toptal.com/developers/gitignore/",
+        "description": "Sito web che genera i .gitignore per ogni tipo di progetto"
+      },
+      {
+        "text": "Per imparare Git",
+        "url": "https://learngitbranching.js.org/?locale=it_IT",
         "description": "Sito web che genera i .gitignore per ogni tipo di progetto"
       }
     ]
