@@ -53,27 +53,27 @@
         {
           "name": "Repository",
           "concept": "Un repository è una cartella locale e/o remota dove Git tiene traccia di tutte le modifiche al codice.\nContiene l'intera cronologia del progetto, inclusi tutti i file e le cartelle.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-repo.png"
         },
         {
           "name": "Working Directory",
           "concept": "La working directory invece è la cartella locale sul tuo computer dove lavori ai file del progetto.\nContiene i file che stai modificando.\nCoincide con la cartella del repository, ma è determinata dal branch su cui stiamo lavorando.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-working-dir.png"
         },
         {
           "name": "Staging Area",
           "concept": "La staging area è un'area temporanea nella Working Directory dove Git tiene traccia delle modifiche che verranno incluse nel prossimo commit.\nPermette di selezionare quali modifiche includere.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-staging.png"
         },
         {
           "name": "Commit",
           "concept": "Un commit è uno snapshot delle modifiche apportate al repository.\nOgni commit ha un messaggio che descrive le modifiche effettuate e un codice hash SHA-1 che funge da ID univoco.",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-overview-local.png"
         },
         {
           "name": "Tag",
           "concept": "I tag sono riferimenti che rimandano a punti specifici nella cronologia Git.\nVengono generalmente utilizzati per acquisire un punto cronologico che viene utilizzato per una versione contrassegnata (ad es. v1.0.1).",
-          "image": "assets/images/problemi-comuni.jpg"
+          "image": "assets/images/git-tag.png"
         }
       ]
     },
@@ -98,6 +98,11 @@
           "name": "Commit",
           "concept": "Questi sono i comandi base per creare un commit.",
           "image": "assets/images/git-command-commit.png"
+        },        
+        {
+          "name": "Tag",
+          "concept": "",
+          "image": "assets/images/git-command-tag.png"
         },
         {
           "name": "Log",
@@ -201,6 +206,17 @@
       ]
     },
     {
+      "id": "page-overview",
+      "type": "custom",
+      "title": "Overview",
+      "subtitle": "Visualizzazione grafica di tutto il flusso Git",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/git_overview_remote.png"
+      }
+    },
+    {
       "id": "page-advanced-commands",
       "type": "standard",
       "title": "Comandi Avanzati",
@@ -279,54 +295,124 @@
       }
     },
     {
-      "id": "custom-page-3",
+      "id": "page-best-practice",
       "type": "custom",
       "title": "Best Practices e Workflow",
       "subtitle": "Linee guida e metodologie per un utilizzo efficace di Git in team",
       "background": "#ffffff",
       "content": {
-        "text": "Ecco alcune best practices:\n\n- **GitHub workflow**: Un flusso di lavoro comune per la collaborazione.\n- **Convenzioni per i commit message**: Scrivere messaggi di commit chiari e concisi.\n- **Code review process**: Revisionare il codice prima di unire le modifiche.\n- **Branch naming conventions**: Usare nomi significativi per i branch.\n- **Release management**: Gestire le release in modo strutturato.",
-        "image": "assets/images/problemi-comuni.jpg"
+        "text": "  • Gitflow: Un flusso di lavoro comune per la collaborazione.<br>  • Convenzioni per i commit message: Scrivere messaggi di commit chiari e concisi.<br>  • Code review process: Revisionare il codice prima di unire le modifiche.<br>  • Branch naming conventions: Usare nomi significativi per i branch.<br>  • Release management: Gestire le release in modo strutturato.",
+        "image": "assets/images/gitflowCompleto.png"
       }
     }
   ],
   "glossary": {
-    "id": "glossary",
-    "title": "Glossario",
-    "background": "#ffffff",
-    "keywords": [
-      {
-        "name": "Repository",
-        "concept": "Un repository è una directory dove Git tiene traccia di tutte le modifiche.",
-        "pageId": "standard-page-2"
-      },
-      {
-        "name": "Commit",
-        "concept": "Un commit è uno snapshot delle modifiche apportate al repository.",
-        "pageId": "standard-page-3"
-      },
-      {
-        "name": "Branch",
-        "concept": "Un branch è una linea di sviluppo separata.",
-        "pageId": "standard-page-4"
-      },
-      {
-        "name": "Staging Area",
-        "concept": "Un'area temporanea dove Git tiene traccia delle modifiche prima di committarle.",
-        "pageId": "standard-page-3"
-      },
-      {
-        "name": "Merge",
-        "concept": "Unire due branch in uno.",
-        "pageId": "standard-page-4"
-      },
-      {
-        "name": "Rebase",
-        "concept": "Riorganizzare i commit in un branch.",
-        "pageId": "standard-page-5"
-      }
-    ]
-  },
+      "id": "glossary",
+      "title": "Glossario",
+      "background": "#ffffff",
+      "keywords": [
+        {
+          "name": "Repository",
+          "concept": "Cartella locale/remota dove Git tiene traccia di tutte le modifiche al codice.",
+          "pageId": "page-intro"
+        },
+        {
+          "name": "Working Directory",
+          "concept": "Cartella locale sul computer dove si lavora ai file del progetto.",
+          "pageId": "page-intro"
+        },
+        {
+          "name": "Staging Area",
+          "concept": "Area temporanea che raggruppa le modifiche per il prossimo commit.",
+          "pageId": "page-intro"
+        },
+        {
+          "name": "Commit",
+          "concept": "Snapshot delle modifiche con un messaggio descrittivo e un hash univoco.",
+          "pageId": "page-intro"
+        },
+        {
+          "name": "Tag",
+          "concept": "Riferimenti a punti specifici della cronologia usati per contrassegnate dei riferimenti.",
+          "pageId": "page-intro"
+        },
+        {
+          "name": "Tracking",
+          "concept": "Permette a Git di iniziare a tracciare nuovi file e registrare modifiche.",
+          "pageId": "page-file-management"
+        },
+        {
+          "name": "Log",
+          "concept": "Storia dei commit che permette di analizzare modifiche e differenze.",
+          "pageId": "page-file-management"
+        },
+        {
+          "name": ".gitignore",
+          "concept": "File per specificare quali file e cartelle Git deve ignorare.",
+          "pageId": "page-file-management"
+        },
+        {
+          "name": "Branch",
+          "concept": "Linea di sviluppo separata utile per nuove funzionalità o correzioni.",
+          "pageId": "page-branch-merge"
+        },
+        {
+          "name": "Merge",
+          "concept": "Processo di unione tra due branch per integrare le modifiche.",
+          "pageId": "page-branch-merge"
+        },
+        {
+          "name": "GitHub",
+          "concept": "Piattaforma di hosting e collaborazione remota basata su Git.",
+          "pageId": "page-remote"
+        },
+        {
+          "name": "Clone",
+          "concept": "Comando per copiare un repository remoto in locale.",
+          "pageId": "page-remote"
+        },
+        {
+          "name": "Push, Pull e Fetch",
+          "concept": "Comandi base per scambiare aggiornare le diff tra repository locale e remoto.",
+          "pageId": "page-remote"
+        },
+        {
+          "name": "Rebase",
+          "concept": "Riapplica commit da un branch per mantenere una cronologia lineare e pulita.",
+          "pageId": "page-advanced-commands"
+        },
+        {
+          "name": "Reset",
+          "concept": "Ripristina il repository a uno stato precedente con tre modalità.",
+          "pageId": "page-advanced-commands"
+        },
+        {
+          "name": "Revert",
+          "concept": "Crea un nuovo commit che annulla modifiche precedenti senza alterare la cronologia.",
+          "pageId": "page-advanced-commands"
+        },
+        {
+          "name": "Cherry-pick",
+          "concept": "Applica un commit specifico da un branch a un altro.",
+          "pageId": "page-extra"
+        },
+        {
+          "name": "Patch",
+          "concept": "File di testo con differenze usato per condividere modifiche.",
+          "pageId": "page-extra"
+        },
+        {
+          "name": "Stash",
+          "concept": "Salva temporaneamente modifiche non commitate per lavorare su altro.",
+          "pageId": "page-extra"
+        },
+        {
+          "name": "Blame",
+          "concept": "Mostra chi ha modificato ogni riga di un file e in quale commit.",
+          "pageId": "page-extra"
+        }
+      ]
+    },
   "footer": {
     "id": "footer",
     "title": "Grazie per l'attenzione",
@@ -364,7 +450,7 @@
         "description": "Sito web che genera i .gitignore per ogni tipo di progetto"
       },
       {
-        "text": "Per imparare Git",
+        "text": "Playground Git",
         "url": "https://learngitbranching.js.org/?locale=it_IT",
         "description": "Sito web che genera i .gitignore per ogni tipo di progetto"
       }

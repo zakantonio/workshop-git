@@ -375,6 +375,11 @@ button:hover {
   /* Animazione fluida */
 }
 
+#page-best-practice img {
+  scale: 1.5;
+  margin-top: 60px;
+}
+
 @media (max-width: 1300px) {
   .content {
     margin: 80px 0;
