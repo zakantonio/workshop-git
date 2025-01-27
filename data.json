@@ -403,6 +403,11 @@
         "pageId": "page-intro"
       },
       {
+        "name": "HEAD",
+        "concept": "Il modo utilizzato in Git per fare riferimento alla snapshot corrente.",
+        "pageId": ""
+      },
+      {
         "name": "Tracking",
         "concept": "Permette a Git di iniziare a tracciare nuovi file e registrare modifiche.",
         "pageId": "page-file-management"
@@ -503,6 +508,11 @@
       {
         "text": "Sito ufficiale Git",
         "url": "https://git-scm.com/",
+        "description": "Sito ufficiale Git per il download e la documentazione."
+      },
+      {
+        "text": "Sito ufficiale Git LFS (Large File System)",
+        "url": "https://git-lfs.com/",
         "description": "Sito ufficiale Git per il download e la documentazione."
       },
       {
