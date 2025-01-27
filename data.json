@@ -78,6 +78,17 @@
       ]
     },
     {
+      "id": "page-base-commands",
+      "type": "custom",
+      "title": "Comandi iniziali",
+      "subtitle": "Comandi essenziali per creare un repository Git",
+      "background": "#ffffff",
+      "content": {
+        "text": "La prima volta che eseguiamo Git, dovremo configurare name ed email, questi verranno associati a tutti i futuri commit.<br>Il comando git init dovrà essere eseguito nella cartella del nostro progetto",
+        "image": "assets/images/code-commang-initial.png"
+      }
+    },
+    {
       "id": "page-file-management",
       "type": "standard",
       "title": "Gestione Base dei File",
@@ -115,17 +126,6 @@
           "image": "assets/images/git-command-gitignore.png"
         }
       ]
-    },
-    {
-      "id": "page-base-commands",
-      "type": "custom",
-      "title": "Comandi iniziali",
-      "subtitle": "Comandi essenziali per creare un repository Git",
-      "background": "#ffffff",
-      "content": {
-        "text": "La prima volta che eseguiamo Git, dovremo configurare name ed email, questi verranno associati a tutti i futuri commit.<br>Il comando git init dovrà essere eseguito nella cartella del nostro progetto",
-        "image": "assets/images/code-commang-initial.png"
-      }
     },
     {
       "id": "page-branch-merge",
