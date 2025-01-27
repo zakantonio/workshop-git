@@ -534,6 +534,11 @@
         "text": "Trello",
         "url": "https://trello.com/it",
         "description": "Piattaforma per creare delle board per il task management del progetto."
+      },
+      {
+        "text": "Git GUI",
+        "url": "https://git-scm.com/downloads/guis",
+        "description": "Elenco di GIU per lavorare con Git"
       }
     ]
   }
