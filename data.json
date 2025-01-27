@@ -307,6 +307,50 @@
       }
     },
     {
+      "id": "page-scenario-1",
+      "type": "custom",
+      "title": "Scenario 1",
+      "subtitle": "Inizio un repo in locale e lo pusho su una repo nuova remota",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/scenario-1.png"
+      }
+    },
+    {
+      "id": "page-scenario-2",
+      "type": "custom",
+      "title": "Scenario 2",
+      "subtitle": "Scarico le diff dal branch remoto, mettendo in stash temporaneamente le modifiche in corso",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/scenario-2.png"
+      }
+    },
+    {
+      "id": "page-scenario-3",
+      "type": "custom",
+      "title": "Scenario 3",
+      "subtitle": "Faccio un rebase e devo far aggiornare gli altri utenti",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/scenario-3.png"
+      }
+    },
+    {
+      "id": "page-scenario-4",
+      "type": "custom",
+      "title": "Scenario 4",
+      "subtitle": "Creo un nuovo branch e lo pusho al repository remoto",
+      "background": "#ffffff",
+      "content": {
+        "text": "",
+        "image": "assets/images/scenario-4.png"
+      }
+    },
+    {
       "id": "page-qrcode",
       "type": "custom",
       "title": "Link alla presentazione",
