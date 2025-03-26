@@ -10,6 +10,15 @@ This is a comprehensive Git workshop designed to introduce developers to Git ver
 
 **Note: The workshop and slides are in Italian.**
 
+## 🔗 Resources
+
+<p align="center">
+  <b>🎬 <a href="https://youtu.be/QbXAskIENVM">Watch full workshop recording on YouTube</a> </b> (in Italian)
+</p>
+<p align="center">
+  <b>📊 <a href="https://zakantonio.github.io/workshop-git/">Explore the interactive presentation</a></b> (in Italian)
+</p>
+
 ## 🔍 Workshop Content
 
 The workshop covers a wide range of Git topics including:
@@ -22,17 +31,8 @@ The workshop covers a wide range of Git topics including:
 - 💡 Tips and tricks (Cherry-pick, Patch, Stash, Blame)
 - ✅ Best practices and workflows
 
-## 🔗 Resources
-
-### Workshop Materials
-
-- 📊 [Workshop Slides](https://zakantonio.github.io/workshop-git/) - Interactive presentation with all workshop content (in Italian)
-- 🎥 [Workshop Recording](https://youtu.be/QbXAskIENVM) - Video recording of the workshop presentation (in Italian)
-
-### Additional Resources
-
-The workshop includes links to various Git resources:
-
+## 🔗 Additional Resources
+In the slides you will find links to additional resources for further learning:
 - 📚 Official Git documentation
 - 📝 Git cheat sheets
 - 🙈 .gitignore templates
@@ -54,7 +54,7 @@ This workshop material is available for educational purposes.
 ---
 
 <p align="center">
-  <img src="assets/images/incaseoffire.png" style="background-color: white" alt="Git Branching" width="300">
+  <img src="assets/images/incaseoffire.png" alt="Git Branching" width="250">
 </p>
 
 *Note: This workshop was created to help developers understand and effectively use Git for version control in their projects.* ⭐
