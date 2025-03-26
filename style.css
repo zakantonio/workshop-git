@@ -12,7 +12,7 @@
   --git-bg-color: #F1F0E8;
 }
 
-/* Reset di base */
+/* Basic reset */
 body,
 html {
   margin: 0;
@@ -36,10 +36,10 @@ br {
   position: relative;
 }
 
-/* Stile delle pagine */
+/* Page styles */
 .page {
   display: none;
-  /* Nasconde tutte le pagine di default */
+  /* Hide all pages by default */
   position: absolute;
   top: 0;
   left: 0;
@@ -50,16 +50,17 @@ br {
   background-size: cover;
   background-position: center;
   overflow-y: auto;
-  /* Permette lo scroll interno se il contenuto è troppo lungo */
+  /* Allows internal scrolling if content is too long */
 }
 
 .page.active {
   display: block;
-  /* Mostra solo la pagina attiva */
+  /* Show only active page */
 }
 
-/* Contenuto centrato */
-.content, .custom-content {
+/* Centered content */
+.content,
+.custom-content {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
@@ -78,18 +79,19 @@ br {
   max-width: 50%;
   margin: 20px;
 }
+
 .custom-content p {
   max-width: 70%;
 }
 
-/* Stile per titoli e sottotitoli */
+/* Title and subtitle styles */
 h1 {
   font-size: 36px;
   color: var(--git-primary-color);
   margin: 0 0 0px 0;
 }
 
-/* Stile per i pulsanti */
+/* Button styles */
 button {
   background-color: var(--git-secondary-color);
   color: white;
@@ -103,7 +105,7 @@ button:hover {
   opacity: 0.5;
 }
 
-/* Stile per la lista delle parole chiave */
+/* Keyword list styles */
 .keyword-list {
   display: flex;
   flex-direction: column;
@@ -114,7 +116,7 @@ button:hover {
   cursor: pointer;
   margin: 10px 0;
   border: 1px solid rgba(240, 80, 51, 0.1);
-  color:  rgba(240, 80, 51, 0.5);
+  color: rgba(240, 80, 51, 0.5);
   border-radius: 5px;
   padding: 5px 10px;
 }
@@ -125,12 +127,12 @@ button:hover {
   opacity: 1;
   scale: 1.05;
   background-color: rgba(240, 80, 51, 0.1);
-  /* Sfondo leggero per evidenziare */
+  /* Light background to highlight */
   border-radius: 5px;
   transition: scale 0.5s ease, font-weight 1s ease;
 }
 
-/* Layout per il contenuto delle parole chiave */
+/* Layout for keyword content */
 .keyword-content {
   display: flex;
   margin-top: 20px;
@@ -155,7 +157,7 @@ button:hover {
   width: 50%;
 }
 
-/* Stile per il footer */
+/* Footer styles */
 #footer-links {
   list-style: none;
   padding: 0;
@@ -174,7 +176,7 @@ button:hover {
   text-decoration: underline;
 }
 
-/* Stile per il glossario */
+/* Glossary styles */
 #glossary {
   background-color: var(--git-bg-color);
 }
@@ -190,7 +192,7 @@ button:hover {
   flex-wrap: wrap;
   padding: 0;
   gap: 20px;
-  /* Spazio tra le colonne */
+  /* Space between columns */
   justify-content: space-between;
 }
 
@@ -202,7 +204,7 @@ button:hover {
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex: 1 1 calc(50% - 20px);
-  /* 2 colonne su desktop */
+  /* 2 columns on desktop */
   box-sizing: border-box;
   cursor: pointer;
   transition: scale 0.3s ease, box-shadow 0.3s ease;
@@ -226,7 +228,7 @@ button:hover {
 }
 
 
-/* Stile per la home page */
+/* Home page styles */
 #home {
   display: flex;
   align-items: center;
@@ -284,14 +286,14 @@ button:hover {
   font-size: 18px;
 }
 
-/* Titolo e sottotitolo */
+/* Title and subtitle */
 #home .home-text {
   text-align: left;
 }
 
 #home .home-text h1 {
   font-size: 92px;
-  /* Titolo molto grande */
+  /* Very large title */
   color: var(--git-primary-color);
   margin: 0;
   line-height: 1.2;
@@ -299,23 +301,24 @@ button:hover {
 
 #home .home-text h2 {
   font-size: 24px;
-  /* Sottotitolo più piccolo */
+  /* Smaller subtitle */
   color: var(--git-text-color);
   margin: 10px 0 0;
 }
 
-/* Azioni */
+/* Actions */
 #home-actions {
   position: absolute;
   bottom: 40px;
   margin-right: 20px;
 }
 
-#glossary-actions, #footer-actions {
-margin-top: 40px;
+#glossary-actions,
+#footer-actions {
+  margin-top: 40px;
 }
 
-/* Azioni */
+/* Actions */
 #home-tip {
   position: absolute;
   right: 48px;
@@ -328,8 +331,8 @@ margin-top: 40px;
   filter: grayscale(1);
 }
 
-#home-actions button, 
-#glossary-actions button, 
+#home-actions button,
+#glossary-actions button,
 #footer-actions button {
   background-color: var(--git-secondary-color);
   color: white;
@@ -342,7 +345,7 @@ margin-top: 40px;
   transition: background-color 0.3s ease;
 }
 
-/* Stile per i bottoni di navigazione */
+/* Navigation button styles */
 .navigation-buttons {
   display: flex;
   margin-top: 10px;
@@ -368,19 +371,19 @@ margin-top: 40px;
   left: 0;
   width: 100%;
   height: 5px;
-  /* Altezza della barra */
+  /* Bar height */
   z-index: 1000;
-  /* Assicurati che sia sopra tutti gli altri elementi */
+  /* Ensure it's above all other elements */
 }
 
 #progress {
   height: 100%;
   width: 0;
-  /* La larghezza iniziale è 0 */
+  /* Initial width is 0 */
   background-color: var(--git-primary-color);
-  /* Colore della barra di caricamento */
+  /* Loading bar color */
   transition: width 0.3s ease;
-  /* Animazione fluida */
+  /* Smooth animation */
 }
 
 #page-best-practice img {
@@ -392,7 +395,8 @@ margin-top: 40px;
   width: 100%;
   display: flex;
 }
-#meme-container img{
+
+#meme-container img {
   max-width: 320px;
 }
 
@@ -402,28 +406,22 @@ margin-top: 40px;
   }
 }
 
-/* Responsive: impila i bottoni su mobile */
+/* Responsive: stack buttons on mobile */
 @media (max-width: 768px) {
-  /* .navigation-buttons { */
-  /*   flex-direction: column; */
-  /*   gap: 10px; */
-  /* } */
-
-  /* .nav-button { */
-  /*   width: 100%; */
-  /* } */
-
   .page {
     width: auto;
   }
+
   #fullscreen-toggle {
     margin: 20px 20px;
   }
+
   #content {
     margin: 80px 0;
   }
 
-  .custom-content p,  .custom-content img{
+  .custom-content p,
+  .custom-content img {
     max-width: 100%;
 
   }
@@ -436,14 +434,16 @@ margin-top: 40px;
     font-size: 18px;
   }
 
-  #home-actions button, #glossary-actions button, #footer-actions button {
+  #home-actions button,
+  #glossary-actions button,
+  #footer-actions button {
     width: 100%;
     margin: 10px 0;
   }
 
   #glossary-list li {
     flex: 1 1 100%;
-    /* 1 colonna su mobile */
+    /* 1 column on mobile */
   }
 
   .keyword-content {
@@ -466,5 +466,4 @@ margin-top: 40px;
   #home-tip {
     display: none;
   }
-
 }

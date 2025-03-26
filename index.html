@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop Git</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="progress-bar">
-      <div id="progress"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Git</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="progress-bar">
+    <div id="progress"></div>
+  </div>
+  <div id="app">
+    <img id="logo" class="logo" alt="logo" src="assets/images/logo_.png">
+    <div id="fullscreen-toggle">
+      <i id="fullscreen-icon" class="fas fa-expand"></i> <!-- Expand icon -->
     </div>
-    <div id="app">
-          <img id="logo" class="logo" alt="logo" src="assets/images/logo_.png">
-          <div id="fullscreen-toggle">
-            <i id="fullscreen-icon" class="fas fa-expand"></i> <!-- Icona di espansione -->
-          </div>
-      <!-- Home Page -->
-      <section id="home" class="page">
-        <div class="content">
-          <!-- Titolo e sottotitolo -->
-          <div class="home-text">
-            <img id="logo-big" class="logo" alt="logo" src="assets/images/logo_.png">
-            <h1 id="home-title"></h1>
-            <h2 id="home-subtitle"></h2>
-          </div>
-
-          <!-- Azioni -->
-          <div id="home-actions"></div>
-          <div id="home-tip">
-            <img src="assets/images/keyboard.png">
-          </div>
+    <!-- Home Page -->
+    <section id="home" class="page">
+      <div class="content">
+        <!-- Title and subtitle -->
+        <div class="home-text">
+          <img id="logo-big" class="logo" alt="logo" src="assets/images/logo_.png">
+          <h1 id="home-title"></h1>
+          <h2 id="home-subtitle"></h2>
         </div>
-      </section>
 
-      <!-- Pagine Standard e Custom -->
-      <section id="pages">
-        <!-- Le pagine verranno caricate dinamicamente qui -->
-      </section>
+        <!-- Actions -->
+        <div id="home-actions"></div>
+        <div id="home-tip">
+          <img src="assets/images/keyboard.png">
+        </div>
+      </div>
+    </section>
 
-      <!-- Glossario -->
-      <section id="glossary" class="page">
-        <div class="content">
-          <h1 id="glossary-title"></h1>
-          <ul id="glossary-list"></ul>
+    <!-- Standard and Custom Pages -->
+    <section id="pages">
+      <!-- Pages will be loaded dynamically here -->
+    </section>
+
+    <!-- Glossary -->
+    <section id="glossary" class="page">
+      <div class="content">
+        <h1 id="glossary-title"></h1>
+        <ul id="glossary-list"></ul>
         <div id="glossary-actions"></div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <section id="footer" class="page">
+      <div class="content">
+        <h1 id="footer-title"></h1>
+        <p id="footer-quote"></p>
+        <ul id="footer-links"></ul>
+        <div id="meme-container">
+          <img src="assets/images/incaseoffire.png">
         </div>
-
-      </section>
-
-      <!-- Footer -->
-      <section id="footer" class="page">
-        <div class="content">
-          <h1 id="footer-title"></h1>
-          <p id="footer-quote"></p>
-          <ul id="footer-links"></ul>
-          <div id="meme-container">
-            <img src="assets/images/incaseoffire.png">
-          </div>
         <div id="footer-actions"></div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>

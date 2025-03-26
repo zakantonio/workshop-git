@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let data;
   let pages = [];
 
-  // Carica il JSON
+  // Load JSON
   fetch("data.json")
     .then((response) => response.json())
     .then((json) => {
@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   window.addEventListener("popstate", (event) => {
-    const pageId = event.state?.pageId || "home"; // Usa l'ID della pagina dallo stato o la pagina predefinita
+    const pageId = event.state?.pageId || "home"; // Use page ID from state or default page
     showPage(pageId);
   });
 
   function showRequestPage() {
-    // Verifica se c'è un hash nell'URL
-    const hash = window.location.hash.substring(1); // Rimuovi il "#" dall'hash
+    // Check if there's a hash in the URL
+    const hash = window.location.hash.substring(1); // Remove "#" from hash
 
-    // Mostra la pagina corrispondente all'hash o la pagina predefinita
+    // Show the page corresponding to the hash or the default page
     if (hash && document.getElementById(hash)) {
       showPage(hash);
     } else {
@@ -33,28 +33,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Renderizza la Home Page
+  // Render Home Page
   function renderHome() {
     const homeContent = document.querySelector("#home .content");
 
-    // Imposta titolo e sottotitolo
+    // Set title and subtitle
     document.getElementById("home-title").innerText = data.home.title;
     document.getElementById("home-subtitle").innerText = data.home.subtitle;
 
-    // Aggiungi le azioni
+    // Add actions
     const actionsContainer = document.getElementById("home-actions");
     data.home.actions.forEach((action) => {
       const button = document.createElement("button");
       button.innerText = action.text;
-      button.addEventListener("click", () =>
-        showPage(action.link.replace("#", ""))
-      );
+
+      button.addEventListener("click", () => {
+        // Check if the link is an external URL or internal reference
+        if (action.link.startsWith('http://') || action.link.startsWith('https://')) {
+          // If external URL, open in new tab
+          window.open(action.link, '_blank');
+
+        } else {
+          // If internal reference, navigate to page
+          showPage(action.link.replace("#", ""))
+        }
+      });
+
       actionsContainer.appendChild(button);
     });
   }
 
   function renderPages() {
-    // Aggiungi la home all'array delle pagine
+    // Add home to pages array
     const homePage = document.getElementById("home");
     pages.push(homePage);
 
@@ -68,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const contentDiv = document.createElement("div");
       contentDiv.className = "content";
 
-      // Aggiungi il titolo e il sottotitolo
+      // Add title and subtitle
       const title = document.createElement("h1");
       title.textContent = page.title;
       contentDiv.appendChild(title);
@@ -78,14 +88,14 @@ document.addEventListener("DOMContentLoaded", () => {
       contentDiv.appendChild(subtitle);
 
       if (page.type === "standard") {
-        // Se la pagina è di tipo "standard"
+        // If page is "standard" type
         const keywordContent = document.createElement("div");
         keywordContent.className = "keyword-content";
 
         const keywordList = document.createElement("div");
         keywordList.className = "keyword-list";
 
-        // Ciclo sulle keywords
+        // Loop through keywords
         page.keywords.forEach((keyword, i) => {
           const keywordItem = document.createElement("div");
           keywordItem.className = "keyword-item";
@@ -97,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const keywordImage = document.createElement("div");
         keywordImage.className = "keyword-image";
 
-        // Mostra il concetto e l'immagine della prima keyword
+        // Show concept and image of first keyword
         if (page.keywords.length > 0) {
           const concept = document.createElement("p");
-          concept.innerHTML = page.keywords[0].concept; // Usa innerHTML per interpretare i tag HTML
+          concept.innerHTML = page.keywords[0].concept; // Use innerHTML to interpret HTML tags
           keywordImage.appendChild(concept);
 
           const image = document.createElement("img");
@@ -113,12 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
         keywordContent.appendChild(keywordImage);
         contentDiv.appendChild(keywordContent);
       } else {
-        // Se la pagina è di tipo "custom"
+        // If page is "custom" type
         const customContent = document.createElement("div");
         customContent.className = "custom-content";
 
         const text = document.createElement("p");
-        text.innerHTML = page.content.text; // Usa innerHTML per interpretare i tag HTML
+        text.innerHTML = page.content.text; // Use innerHTML to interpret HTML tags
         customContent.appendChild(text);
 
         const image = document.createElement("img");
@@ -129,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contentDiv.appendChild(customContent);
       }
 
-      // Aggiungi i bottoni di navigazione
+      // Add navigation buttons
       const navigationButtons = document.createElement("div");
       navigationButtons.className = "navigation-buttons";
 
@@ -146,17 +156,17 @@ document.addEventListener("DOMContentLoaded", () => {
       contentDiv.appendChild(navigationButtons);
       pageElement.appendChild(contentDiv);
       pagesContainer.appendChild(pageElement);
-      pages.push(pageElement); // Aggiungi la pagina all'array
+      pages.push(pageElement); // Add page to array
     });
 
-    // Aggiungi i listener ai bottoni di navigazione
+    // Add listeners to navigation buttons
     setupNavigationButtons();
 
-    // Aggiungi il Glossario all'array delle pagine
+    // Add Glossary to pages array
     const glossaryPage = document.getElementById("glossary");
     pages.push(glossaryPage);
 
-    // Aggiungi il Footer all'array delle pagine
+    // Add Footer to pages array
     const footerPage = document.getElementById("footer");
     pages.push(footerPage);
   }
@@ -166,11 +176,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButtons = document.querySelectorAll(".next-button");
 
     prevButtons.forEach((button) => {
-      button.addEventListener("click", () => navigatePages("up")); // Pagina precedente
+      button.addEventListener("click", () => navigatePages("up")); // Previous page
     });
 
     nextButtons.forEach((button) => {
-      button.addEventListener("click", () => navigatePages("down")); // Pagina successiva
+      button.addEventListener("click", () => navigatePages("down")); // Next page
     });
   }
 
@@ -180,25 +190,25 @@ document.addEventListener("DOMContentLoaded", () => {
     data.glossary.keywords.forEach((keyword) => {
       const li = document.createElement("li");
 
-      // Aggiungi il titolo (parola chiave)
+      // Add title (keyword)
       const title = document.createElement("h3");
       title.innerText = keyword.name;
       li.appendChild(title);
 
-      // Aggiungi il concetto
+      // Add concept
       const concept = document.createElement("p");
       concept.innerText = keyword.concept;
       li.appendChild(concept);
 
-      // Gestione del click
+      // Click handling
       li.addEventListener("click", () => {
-        showPage(keyword.pageId); // Reindirizza alla pagina specifica
+        showPage(keyword.pageId); // Redirect to specific page
       });
 
       glossaryList.appendChild(li);
     });
 
-    // Aggiungi le azioni
+    // Add actions
     const actionsContainer = document.getElementById("glossary-actions");
     data.glossary.actions.forEach((action) => {
       const button = document.createElement("button");
@@ -210,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Renderizza il Footer
+  // Render Footer
   function renderFooter() {
     document.getElementById("footer-title").innerText = data.footer.title;
     document.getElementById("footer-quote").innerText = data.footer.quote;
@@ -225,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
       footerLinks.appendChild(li);
     });
 
-    // Aggiungi le azioni
+    // Add actions
     const actionsContainer = document.getElementById("footer-actions");
     data.footer.actions.forEach((action) => {
       const button = document.createElement("button");
@@ -237,28 +247,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mostra una pagina specifica
+  // Show specific page
   function showPage(pageId) {
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
 
-    fadeInFunc(document.getElementById(pageId).querySelector(".content")); // effetto fadein sul content
+    fadeInFunc(document.getElementById(pageId).querySelector(".content")); // fade in effect on content
 
-    currentPageIndex = pages.findIndex((page) => page.id === pageId); // Aggiorna l'indice della pagina corrente
+    currentPageIndex = pages.findIndex((page) => page.id === pageId); // Update current page index
 
-    // Resetta l'indice del concetto solo se la pagina è di tipo "standard"
+    // Reset concept index only if page is "standard" type
     if (data.pages[currentPageIndex - 1]?.type === "standard") {
       currentKeywordIndex = 0;
-      updateKeywordDisplay(); // Aggiorna la visualizzazione del concetto
-      setupKeywordClickListeners(); // Imposta i listener per il click
+      updateKeywordDisplay(); // Update concept display
+      setupKeywordClickListeners(); // Set up click listeners
     }
 
     document.getElementById("logo").style.visibility =
       currentPageIndex === 0 ? "hidden" : "visible";
 
-    // Aggiorna l'URL con l'ID della pagina
+    // Update URL with page ID
     history.pushState({ pageId }, `Page ${pageId}`, `#${pageId}`);
 
     updateProgressBar();
@@ -268,21 +278,21 @@ document.addEventListener("DOMContentLoaded", () => {
     showPage("home");
   }
 
-  // Imposta i listener per il click sulle parole chiave
+  // Set up click listeners for keywords
   function setupKeywordClickListeners() {
     const currentPage = pages[currentPageIndex];
     if (currentPage && data.pages[currentPageIndex - 1]?.type === "standard") {
       const keywordItems = currentPage.querySelectorAll(".keyword-item");
       keywordItems.forEach((item, index) => {
         item.addEventListener("click", () => {
-          currentKeywordIndex = index; // Aggiorna l'indice del concetto selezionato
-          updateKeywordDisplay(); // Aggiorna la visualizzazione
+          currentKeywordIndex = index; // Update selected concept index
+          updateKeywordDisplay(); // Update display
         });
       });
     }
   }
 
-  // Aggiorna la visualizzazione del concetto selezionato
+  // Update selected concept display
   function updateKeywordDisplay() {
     const currentPage = pages[currentPageIndex];
     if (currentPage && data.pages[currentPageIndex - 1]?.type === "standard") {
@@ -290,10 +300,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const keywordImage = currentPage.querySelector(".keyword-image img");
       const keywordConcept = currentPage.querySelector(".keyword-image p");
 
-      // Rimuovi la classe 'active' da tutti i concetti
+      // Remove 'active' class from all concepts
       keywordItems.forEach((item) => item.classList.remove("active"));
 
-      // Imposta il concetto corrente come attivo
+      // Set current concept as active
       if (keywordItems[currentKeywordIndex]) {
         keywordItems[currentKeywordIndex].classList.add("active");
         keywordImage.src =
@@ -310,86 +320,87 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Navigazione tra i concetti (destra/sinistra)
+  // Navigate between concepts (right/left)
   function navigateKeywords(direction) {
     const currentPage = pages[currentPageIndex];
     if (currentPage && data.pages[currentPageIndex - 1]?.type === "standard") {
       const totalKeywords = data.pages[currentPageIndex - 1].keywords.length;
       if (direction === "right") {
-        currentKeywordIndex = (currentKeywordIndex + 1) % totalKeywords; // Passa al concetto successivo
+        currentKeywordIndex = (currentKeywordIndex + 1) % totalKeywords; // Go to next concept
       } else if (direction === "left") {
         currentKeywordIndex =
-          (currentKeywordIndex - 1 + totalKeywords) % totalKeywords; // Passa al concetto precedente
+          (currentKeywordIndex - 1 + totalKeywords) % totalKeywords; // Go to previous concept
       }
-      updateKeywordDisplay(); // Aggiorna la visualizzazione
+      updateKeywordDisplay(); // Update display
     }
   }
 
-  // Navigazione tra le pagine (su/giù)
+  // Navigate between pages (up/down)
   function navigatePages(direction) {
     if (direction === "down") {
       if (currentPageIndex === pages.length - 1) return;
 
-      currentPageIndex = (currentPageIndex + 1) % pages.length; // Passa alla pagina successiva
+      currentPageIndex = (currentPageIndex + 1) % pages.length; // Go to next page
     } else if (direction === "up") {
       if (currentPageIndex === 0) return;
 
-      currentPageIndex = (currentPageIndex - 1 + pages.length) % pages.length; // Passa alla pagina precedente
+      currentPageIndex = (currentPageIndex - 1 + pages.length) % pages.length; // Go to previous page
     }
-    showPage(pages[currentPageIndex].id); // Mostra la nuova pagina
+    showPage(pages[currentPageIndex].id); // Show new page
   }
 
-  // Gestione degli eventi da tastiera
+  // Keyboard event handling
   document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowDown") {
-      navigateKeywords("right"); // Passa al concetto successivo
+      navigateKeywords("right"); // Go to next concept
     } else if (event.key === "ArrowUp") {
-      navigateKeywords("left"); // Passa al concetto precedente
+      navigateKeywords("left"); // Go to previous concept
     } else if (event.key === "ArrowRight") {
-      navigatePages("down"); // Passa alla pagina successiva
+      navigatePages("down"); // Go to next page
     } else if (event.key === "ArrowLeft") {
-      navigatePages("up"); // Passa alla pagina precedente
+      navigatePages("up"); // Go to previous page
     }
   });
-  // Funzione per attivare/disattivare la modalità full screen
+
+  // Toggle fullscreen mode
   function toggleFullscreen() {
-    const elem = document.documentElement; // Seleziona l'elemento root (l'intera pagina)
-    const icon = document.getElementById("fullscreen-icon"); // Seleziona l'icona
+    const elem = document.documentElement; // Select root element (entire page)
+    const icon = document.getElementById("fullscreen-icon"); // Select icon
 
     if (!document.fullscreenElement) {
-      // Entra in modalità full screen
+      // Enter fullscreen mode
       if (elem.requestFullscreen) {
         elem.requestFullscreen();
       } else if (elem.webkitRequestFullscreen) {
-        // Per Safari
+        // For Safari
         elem.webkitRequestFullscreen();
       } else if (elem.msRequestFullscreen) {
-        // Per IE/Edge
+        // For IE/Edge
         elem.msRequestFullscreen();
       }
 
-      // Cambia l'icona in "comprimi"
+      // Change icon to "compress"
       icon.classList.remove("fa-expand");
       icon.classList.add("fa-compress");
     } else {
-      // Esci dalla modalità full screen
+      // Exit fullscreen mode
       if (document.exitFullscreen) {
         document.exitFullscreen();
       } else if (document.webkitExitFullscreen) {
-        // Per Safari
+        // For Safari
         document.webkitExitFullscreen();
       } else if (document.msExitFullscreen) {
-        // Per IE/Edge
+        // For IE/Edge
         document.msExitFullscreen();
       }
 
-      // Cambia l'icona in "espandi"
+      // Change icon to "expand"
       icon.classList.remove("fa-compress");
       icon.classList.add("fa-expand");
     }
   }
 
-  // Funzione per aggiornare la barra di caricamento
+  // Update progress bar
   function updateProgressBar() {
     let progressBar = document.getElementById("progress");
     if (currentPageIndex === 0) {
@@ -401,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Aggiorna la barra di caricamento al caricamento della pagina
+  // Update progress bar on page load
   updateProgressBar();
 
   function fadeInFunc(el) {
@@ -416,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tick();
   }
 
-  // Aggiungi l'evento al pulsante
+  // Add event to button
   document
     .getElementById("fullscreen-toggle")
     .addEventListener("click", toggleFullscreen);
